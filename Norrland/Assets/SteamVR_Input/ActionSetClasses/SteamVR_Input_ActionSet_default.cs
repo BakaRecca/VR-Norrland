@@ -104,13 +104,5 @@ namespace Valve.VR
                 return SteamVR_Actions.default_SnapTurnRight;
             }
         }
-        
-        public virtual SteamVR_Action_Vibration Haptic
-        {
-            get
-            {
-                return SteamVR_Actions.default_Haptic;
-            }
-        }
     }
 }
