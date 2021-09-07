@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 33000011774203880}
   - component: {fileID: 23000011496022464}
   - component: {fileID: 64000012714202242}
+  - component: {fileID: 6494823997955391305}
   m_Layer: 0
   m_Name: Pine_Snowy3
   m_TagString: Untagged
@@ -99,3 +100,14 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300010, guid: e6ec39770b6dbe04f9cbd7ea19e0c7ef, type: 3}
+--- !u!154 &6494823997955391305
+TerrainCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000012936420096}
+  m_Material: {fileID: 0}
+  m_Enabled: 1
+  m_TerrainData: {fileID: 0}
+  m_EnableTreeColliders: 1
