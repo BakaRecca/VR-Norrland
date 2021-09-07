@@ -4,15 +4,48 @@ using UnityEngine;
 
 public class HoleAppear : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] Mesh solid;
+    [SerializeField] Mesh hole;
+    MeshFilter meshfilter;
+
+    ParticleSystem particleSystem;
+
+    void Awake()
     {
-        
+        meshfilter = GetComponentInChildren<MeshFilter>();
+        particleSystem = GetComponentInChildren<ParticleSystem>();
+
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Start()
     {
-        
+        meshfilter.mesh = solid;
+        particleSystem.Stop();
     }
+
+
+    private void OnTriggerStay(Collider other)
+    {
+
+        if (Input.GetKeyDown(KeyCode.K))
+        {
+            StartCoroutine(DrillTheHole());
+        }
+    }
+
+
+    IEnumerator DrillTheHole()
+    {
+        Debug.Log("Start drilling");
+
+        particleSystem.Play();
+
+        yield return new WaitForSeconds(2f);
+
+        meshfilter.mesh = hole;
+        particleSystem.Stop();
+
+        Debug.Log("DrillingDne");
+    }
+
 }

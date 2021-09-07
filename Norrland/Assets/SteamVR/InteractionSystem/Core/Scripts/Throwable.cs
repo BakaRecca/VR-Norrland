@@ -21,6 +21,7 @@ namespace Valve.VR.InteractionSystem
 
         [Tooltip("The local point which acts as a positional and rotational offset to use while held")]
         public Transform attachmentOffset;
+        public Transform attachmentOffsetSide;
 
 		[Tooltip( "How fast must this object be moving to attach due to a trigger hold instead of a trigger press? (-1 to disable)" )]
         public float catchingSpeedThreshold = -1;
