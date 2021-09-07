@@ -6,7 +6,13 @@ public class HoleAppear : MonoBehaviour
 {
     [SerializeField] Mesh solid;
     [SerializeField] Mesh hole;
+
+    [SerializeField] AudioClip audioClip;
+    public float volume = 1f;
+
     MeshFilter meshfilter;
+
+    
 
     ParticleSystem particleSystem;
 
@@ -39,7 +45,7 @@ public class HoleAppear : MonoBehaviour
         Debug.Log("Start drilling");
 
         particleSystem.Play();
-
+        PlayAudio();
         yield return new WaitForSeconds(2f);
 
         meshfilter.mesh = hole;
@@ -47,5 +53,12 @@ public class HoleAppear : MonoBehaviour
 
         Debug.Log("DrillingDne");
     }
+
+
+    void PlayAudio()
+    {
+        AudioSource.PlayClipAtPoint(audioClip, transform.position, volume);
+    }
+
 
 }

@@ -8212,6 +8212,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   solid: {fileID: 0}
   hole: {fileID: 0}
+  audioClip: {fileID: 0}
+  volume: 1
 --- !u!65 &1614239324
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8763,6 +8765,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   solid: {fileID: -3540636590379711355, guid: d393bede4760b5c4d935324075ace395, type: 3}
   hole: {fileID: -2143399401688270402, guid: d393bede4760b5c4d935324075ace395, type: 3}
+  audioClip: {fileID: 8300000, guid: 8468965adf3ddae41837a387f4a803ec, type: 3}
+  volume: 1
 --- !u!4 &1876322041
 Transform:
   m_ObjectHideFlags: 0
