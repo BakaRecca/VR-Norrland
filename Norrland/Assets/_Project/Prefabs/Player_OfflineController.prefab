@@ -23,7 +23,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3229430047186435478}
-  m_LocalRotation: {x: -0, y: 0.5460569, z: -0, w: 0.83774805}
+  m_LocalRotation: {x: 0, y: 0.54605806, z: 0, w: 0.83774734}
   m_LocalPosition: {x: -7.46, y: -5.42, z: 65.39}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -98,6 +98,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5036473391473938502, guid: 4e482dbeaa6fe9a4ba7c02f9f0f8f1e0,
+        type: 3}
+      propertyPath: m_RotationAction.m_SingletonActionBindings.Array.data[0].m_Path
+      value: <XRSimulatedHMD>/centerEyeRotation
       objectReference: {fileID: 0}
     - target: {fileID: 5036473391478006124, guid: 4e482dbeaa6fe9a4ba7c02f9f0f8f1e0,
         type: 3}
