@@ -50,6 +50,10 @@
       "type": "boolean"
     },
     {
+      "name": "/actions/default/out/Haptic",
+      "type": "vibration"
+    },
+    {
       "name": "/actions/platformer/in/Move",
       "type": "vector2"
     },
