@@ -16,6 +16,7 @@ namespace Valve.VR.InteractionSystem
         public SteamVR_Action_Boolean teleportAction = SteamVR_Input.GetAction<SteamVR_Action_Boolean>("Teleport");
 
 		public bool showHints = false;
+		public bool IsTeleporting => teleporting;
 
         public LayerMask traceLayerMask;
 		public LayerMask floorFixupTraceLayerMask;

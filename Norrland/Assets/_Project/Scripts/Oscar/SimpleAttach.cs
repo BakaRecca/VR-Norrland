@@ -1,17 +1,14 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using Valve.VR;
 using Valve.VR.InteractionSystem;
 
+[RequireComponent(typeof(Interactable))]
 public class SimpleAttach : MonoBehaviour
 {
-    private Interactable interactable;
-
+    private Interactable _interactable;
     
-    void Start()
+    private void Awake()
     {
-        interactable = GetComponent<Interactable>();
+        _interactable = GetComponent<Interactable>();
     }
 
     private void OnHandHoverBegin(Hand hand)
@@ -30,10 +27,10 @@ public class SimpleAttach : MonoBehaviour
         bool isGrabEnding = hand.IsGrabEnding(gameObject);
 
         //Grab the object
-        if (interactable.attachedToHand == null && grabType != GrabTypes.None)
+        if (_interactable.attachedToHand == null && grabType != GrabTypes.None)
         {
             hand.AttachObject(gameObject, grabType);
-            hand.HoverLock(interactable);
+            hand.HoverLock(_interactable);
             hand.HideGrabHint();
         }
 
@@ -41,7 +38,7 @@ public class SimpleAttach : MonoBehaviour
         else if (isGrabEnding)
         {
             hand.DetachObject(gameObject);
-            hand.HoverUnlock(interactable);
+            hand.HoverUnlock(_interactable);
         }
     }
 }
