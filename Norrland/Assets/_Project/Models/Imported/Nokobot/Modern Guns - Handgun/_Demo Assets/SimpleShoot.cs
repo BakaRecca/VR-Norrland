@@ -9,7 +9,7 @@ public class SimpleShoot : MonoBehaviour
 {
     [Header("VR Interaction Stuff")]
     public SteamVR_Action_Boolean fireAction;
-    private Interactable interactable;
+    [SerializeField] Interactable interactable;
 
     [Header("Prefab Refrences")]
     public GameObject bulletPrefab;
@@ -29,8 +29,6 @@ public class SimpleShoot : MonoBehaviour
 
     void Start()
     {
-        interactable = GetComponent<Interactable>();
-
         if (barrelLocation == null)
             barrelLocation = transform;
 
@@ -47,7 +45,6 @@ public class SimpleShoot : MonoBehaviour
             if (fireAction[source].stateDown)
             {
                 gunAnimator.SetTrigger("Fire");
-                Shoot();
             }
         }
 
@@ -78,7 +75,14 @@ public class SimpleShoot : MonoBehaviour
         { return; }
 
         // Create a bullet and add force on it in direction of the barrel
-        Instantiate(bulletPrefab, barrelLocation.position, barrelLocation.rotation).GetComponent<Rigidbody>().AddForce(barrelLocation.forward * shotPower);
+        Rigidbody bulletRb = Instantiate(bulletPrefab, barrelLocation.position, barrelLocation.rotation).GetComponent<Rigidbody>();
+        /*bulletRb.AddForce(barrelLocation.forward * shotPower);*/
+
+        bulletRb.velocity = barrelLocation.forward * shotPower;
+
+        Debug.Log($"Barrel location: {barrelLocation.forward}");
+
+        Debug.Log($"Bullet velocity: {bulletRb.velocity}");
 
     }
 
