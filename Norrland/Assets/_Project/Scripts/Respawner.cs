@@ -1,15 +1,14 @@
-using System;
-using System.Diagnostics;
 using UnityEngine;
-using Debug = UnityEngine.Debug;
 
 [RequireComponent(typeof(Rigidbody))]
 public class Respawner : MonoBehaviour
 {
     [SerializeField, Range(1f, 50f)] private float respawnDistance;
+    [SerializeField] private bool debugLog;
     
     private Transform _transform;
     private Vector3 _startPosition;
+    private Quaternion _startRotation;
     private Rigidbody _rigidbody;
 
     private void Reset()
@@ -21,6 +20,7 @@ public class Respawner : MonoBehaviour
     {
         _transform = transform;
         _startPosition = _transform.position;
+        _startRotation = _transform.rotation;
         _rigidbody = GetComponent<Rigidbody>();
     }
 
@@ -33,11 +33,14 @@ public class Respawner : MonoBehaviour
             Respawn();
     }
 
-    private void Respawn()
+    public void Respawn()
     {
-        Debug.Log($"Respawn! Distance: {Vector3.Distance(_startPosition, _transform.position)} - respawnDistance: {respawnDistance}");
+        if (debugLog)
+            Debug.Log($"{name} has respawned! Distance: {Vector3.Distance(_startPosition, _transform.position)} > respawnDistance: {respawnDistance}");
         
         _transform.position = _startPosition;
+        _transform.rotation = _startRotation;
+        _rigidbody.velocity = Vector3.zero;
     }
 
     private bool IsTooFarAway()

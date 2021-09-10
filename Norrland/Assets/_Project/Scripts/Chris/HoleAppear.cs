@@ -1,64 +1,53 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class HoleAppear : MonoBehaviour
 {
-    [SerializeField] Mesh solid;
-    [SerializeField] Mesh hole;
+    [SerializeField] private Mesh solid;
+    [SerializeField] private Mesh hole;
 
-    [SerializeField] AudioClip audioClip;
-    public float volume = 1f;
+    [SerializeField] private AudioClip audioClip;
+    [SerializeField, Range(0f, 1f)] private float volume = 1f;
 
-    MeshFilter meshfilter;
+    private MeshFilter _meshfilter;
+    private ParticleSystem _particleSystem;
 
-    
-
-    ParticleSystem particleSystem;
-
-    void Awake()
+    private void Awake()
     {
-        meshfilter = GetComponentInChildren<MeshFilter>();
-        particleSystem = GetComponentInChildren<ParticleSystem>();
-
+        _meshfilter = GetComponentInChildren<MeshFilter>();
+        _particleSystem = GetComponentInChildren<ParticleSystem>();
     }
 
     private void Start()
     {
-        meshfilter.mesh = solid;
-        particleSystem.Stop();
+        _meshfilter.mesh = solid;
+        _particleSystem.Stop();
     }
-
-
+    
     private void OnTriggerStay(Collider other)
     {
-
         if (Input.GetKeyDown(KeyCode.K))
         {
             StartCoroutine(DrillTheHole());
         }
     }
-
-
-    IEnumerator DrillTheHole()
+    
+    private IEnumerator DrillTheHole()
     {
         Debug.Log("Start drilling");
 
-        particleSystem.Play();
+        _particleSystem.Play();
         PlayAudio();
         yield return new WaitForSeconds(2f);
 
-        meshfilter.mesh = hole;
-        particleSystem.Stop();
+        _meshfilter.mesh = hole;
+        _particleSystem.Stop();
 
         Debug.Log("DrillingDne");
     }
-
-
-    void PlayAudio()
+    
+    private void PlayAudio()
     {
         AudioSource.PlayClipAtPoint(audioClip, transform.position, volume);
     }
-
-
 }
