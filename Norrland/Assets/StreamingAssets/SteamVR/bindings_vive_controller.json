@@ -76,7 +76,7 @@
             {
                "inputs" : {
                   "click" : {
-                     "output" : "/actions/debug/in/respawnall"
+                     "output" : "/actions/debug/in/restartscene"
                   }
                },
                "mode" : "button",

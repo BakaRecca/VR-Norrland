@@ -4,7 +4,9 @@ using UnityEngine;
 public class Respawner : MonoBehaviour
 {
     [SerializeField, Range(1f, 50f)] private float respawnDistance;
-    [SerializeField] private bool debugLog;
+    
+    [Header("DEBUG")]
+    [SerializeField] private bool log;
     
     private Transform _transform;
     private Vector3 _startPosition;
@@ -35,7 +37,7 @@ public class Respawner : MonoBehaviour
 
     public void Respawn()
     {
-        if (debugLog)
+        if (log)
             Debug.Log($"{name} has respawned! Distance: {Vector3.Distance(_startPosition, _transform.position)} > respawnDistance: {respawnDistance}");
         
         _transform.position = _startPosition;

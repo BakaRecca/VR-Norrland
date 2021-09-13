@@ -24,5 +24,13 @@ namespace Valve.VR
                 return SteamVR_Actions.debug_RespawnAll;
             }
         }
+        
+        public virtual SteamVR_Action_Boolean RestartScene
+        {
+            get
+            {
+                return SteamVR_Actions.debug_RestartScene;
+            }
+        }
     }
 }

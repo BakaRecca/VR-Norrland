@@ -1,26 +1,48 @@
 using UnityEngine;
+using Valve.VR.InteractionSystem;
 
 public class Item : MonoBehaviour
 {
     private Transform _transform;
-    
+    private Interactable _interactable;
+
+    public bool IsHeld { get; private set; }
+
     private void Awake()
     {
         _transform = transform;
+        _interactable = GetComponent<Interactable>();
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnAttachedToHand(Hand hand)
     {
-        // Debug.Log($"{other.name} {nameof(OnTriggerEnter)}");
+        IsHeld = true;
     }
     
-    private void OnTriggerStay(Collider other)
+    private void OnDetachedFromHand(Hand hand)
     {
-        // Debug.Log($"{other.name} {nameof(OnTriggerStay)}");
+        IsHeld = false;
     }
-    
-    private void OnTriggerExit(Collider other)
+
+    public void Attach(Transform parent, Vector3 position)
     {
-        // Debug.Log($"{other.name} {nameof(OnTriggerExit)}");
+        CancelInteraction();
+        
+        _transform.SetParent(parent);
+        _transform.localPosition = position;
+    }
+
+    private void CancelInteraction()
+    {
+        _interactable.enabled = false;
+
+        if (TryGetComponent(out Rigidbody rigidbody))
+        {
+            rigidbody.isKinematic = true;
+            rigidbody.useGravity = false;
+        }
+
+        if (TryGetComponent(out Collider collider))
+            collider.enabled = false;
     }
 }

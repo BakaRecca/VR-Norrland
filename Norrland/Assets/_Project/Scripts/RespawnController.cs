@@ -1,11 +1,13 @@
 ﻿using UnityEngine;
 using Valve.VR;
+using UnityEngine.SceneManagement;
 
 namespace _Project.Scripts
 {
     public class RespawnController : MonoBehaviour
     {
         [SerializeField] private SteamVR_Action_Boolean respawnAction;
+        [SerializeField] private SteamVR_Action_Boolean restartAction;
         
         private Respawner[] _items;
 
@@ -16,9 +18,11 @@ namespace _Project.Scripts
 
         private void Update()
         {
+            if (restartAction.stateDown)
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            
             if (respawnAction.stateDown)
             {
-                Debug.Log($"SÅSÅSÅSÅS");
                 foreach (Respawner item in _items)
                 {
                     item.Respawn();

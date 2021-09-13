@@ -37,7 +37,7 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {
         // _readMovement = CanReadInput();
-        _readMovement = !Teleport.instance.IsTeleporting;
+        // _readMovement = !Teleport.instance.IsTeleporting;
 
         if (!_readMovement)
             return;
@@ -51,6 +51,8 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
+        _readMovement = !Teleport.instance.IsTeleporting;
+        
         if (!_readMovement)
             return;
         
