@@ -94,6 +94,10 @@
       "name": "/actions/Debug/in/RespawnAll",
       "type": "boolean",
       "requirement": "optional"
+    },
+    {
+      "name": "/actions/Debug/in/RestartScene",
+      "type": "boolean"
     }
   ],
   "action_sets": [
@@ -119,7 +123,7 @@
     },
     {
       "name": "/actions/Debug",
-      "usage": "single"
+      "usage": "leftright"
     }
   ],
   "default_bindings": [
@@ -192,7 +196,9 @@
       "/actions/default/in/SnapTurnRight": "Snap Turn (Right)",
       "/actions/gun/in/GunFire": "GunFire",
       "/actions/platformer/in/Move": "Move",
-      "/actions/platformer/in/Turn": "Turn"
+      "/actions/platformer/in/Turn": "Turn",
+      "/actions/Debug/in/RestartScene": "Restart Scene",
+      "/actions/Debug/in/RespawnAll": "Respawn All"
     }
   ]
 }
