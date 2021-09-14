@@ -7,40 +7,52 @@ using UnityEngine.XR.Interaction.Toolkit;
 public class Climber : MonoBehaviour
 {
 
-    private CharacterController character;
-    public static XRController climbingHand;
-    private DeviceBasedContinuousMoveProvider continousMovement;
+    private CharacterController characterController;
+    public static ActionBasedController climbingHand;
+    private ActionBasedContinuousMoveProvider continuousMovement;
 
+    private ActionBasedController previousHand;
+    private Vector3 previousPos;
+    private Vector3 currentVelocity;
 
-    // Start is called before the first frame update
     void Start()
     {
-        character = GetComponent<CharacterController>();
-        
+        characterController = GetComponent<CharacterController>();
+        continuousMovement = GetComponent<ActionBasedContinuousMoveProvider>();
 
-        continousMovement = GetComponent<DeviceBasedContinuousMoveProvider>();
-
-        // Add falling in inspector - of the VR Rig - Continous Move Provider(Device-Based) plugin property called "Gravity Application Mode" change to "Immediately";
+        Debug.Log(previousPos);
     }
 
-    // Update is called once per frame
     void FixedUpdate()
     {
         if (climbingHand)
         {
-            continousMovement.enabled = false;
+            if (previousHand == null)
+            {
+                previousHand = climbingHand;
+                previousPos = climbingHand.positionAction.action.ReadValue<Vector3>();
+            }
+            if (climbingHand.name != previousHand.name)
+            {
+                previousHand = climbingHand;
+                previousPos = climbingHand.positionAction.action.ReadValue<Vector3>();
+                Debug.Log("DIFFERENT HAND NOW");
+            }
+            continuousMovement.enabled = false;
             Climb();
         }
         else
         {
-            continousMovement.enabled = true;
+            continuousMovement.enabled = true;
         }
     }
 
-    void Climb()
+    private void Climb()
     {
-        InputDevices.GetDeviceAtXRNode(climbingHand.controllerNode).TryGetFeatureValue(CommonUsages.deviceVelocity, out Vector3 velocity);
+        currentVelocity = (climbingHand.positionAction.action.ReadValue<Vector3>() - previousPos) / Time.deltaTime;
+        characterController.Move(transform.rotation * -currentVelocity * Time.deltaTime);
 
-        character.Move(transform.rotation * -velocity * Time.fixedDeltaTime);
+        previousPos = climbingHand.positionAction.action.ReadValue<Vector3>();
     }
 }
+

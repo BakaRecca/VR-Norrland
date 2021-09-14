@@ -3,34 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 
-public class ClimbInteractable : XRBaseInteractable
+public class ClimbInteractibe : MonoBehaviour
 {
-    [System.Obsolete] // Kanske ta bort
-    protected override void OnSelectEntered(XRBaseInteractor interactor)
+    private void OnTriggerEnter(Collider other)
     {
-        base.OnSelectEntered(interactor);
-
-
-        if (interactor is XRDirectInteractor)
+        if (other is CharacterController)
         {
-            Climber.climbingHand = interactor.GetComponent<XRController>();
+            //Climber.climbingHand =
         }
     }
 
-    [System.Obsolete]
-    protected override void OnSelectExited(XRBaseInteractor interactor)
+    private void OnTriggerExit(Collider other)
     {
-        base.OnSelectExited(interactor);
-
-
-        if (interactor is XRDirectInteractor)
+        if (other is CharacterController)
         {
-            if (Climber.climbingHand && Climber.climbingHand.name == interactor.name)
-            {
-                Climber.climbingHand = null;
-            }
+            //Climber.climbingHand && Climber.climbingHand.name == 
         }
-
     }
-
 }
