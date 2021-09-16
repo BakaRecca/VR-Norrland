@@ -6,8 +6,11 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/CabinScene.unity
-    guid: b368eb9acdabef347bc4f6206ad2c606
+    path: Assets/_Project/Scenes/SwitchScenes/LoadingScene_Cabin_Test.unity
+    guid: 4c32ccd4780414f4facae41522992410
+  - enabled: 1
+    path: Assets/_Project/Scenes/SwitchScenes/LoadingScene_Lake_Test.unity
+    guid: 313546d57e56f6f4fa0102a618531cb9
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: bfa1182bd221b4ca89619141f66f1260,
       type: 2}
