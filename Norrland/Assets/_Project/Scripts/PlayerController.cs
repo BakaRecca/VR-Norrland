@@ -38,6 +38,7 @@ public class PlayerController : MonoBehaviour
     {
         // _readMovement = CanReadInput();
         // _readMovement = !Teleport.instance.IsTeleporting;
+        
 
         if (!_readMovement)
             return;
