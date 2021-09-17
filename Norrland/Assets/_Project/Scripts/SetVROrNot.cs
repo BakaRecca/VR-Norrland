@@ -7,6 +7,9 @@ public class SetVROrNot : MonoBehaviour
     [SerializeField] private GameObject OfflineRig;
 
     [SerializeField] private VRMode VRMode;
+    
+    [Header("DEBUG")]
+    [SerializeField] private bool log;
 
     private bool _isOnVR;
 
@@ -26,15 +29,18 @@ public class SetVROrNot : MonoBehaviour
         switch (XRSettings.isDeviceActive)
         {
             case false:
-                Debug.Log("No headset plugged");
+                if (log)
+                    Debug.Log("No headset plugged");
                 _isOnVR = false;
                 break;
             case true when (XRSettings.loadedDeviceName == "Mock HMD" || XRSettings.loadedDeviceName == "MockHMDDisplay"):
-                Debug.Log("Using Mock HMD");
+                if (log)
+                    Debug.Log("Using Mock HMD");
                 _isOnVR = false;
                 break;
             default:
-                Debug.Log("We have a headset" + XRSettings.loadedDeviceName);
+                if (log)
+                    Debug.Log("We have a headset" + XRSettings.loadedDeviceName);
                 _isOnVR = true;
                 break;
         }
