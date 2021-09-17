@@ -18,8 +18,6 @@ public class PlayerController : MonoBehaviour
     private Transform _head;
     private CharacterController _characterController;
 
-    private bool _readMovement;
-
     private void Reset()
     {
         moveSpeed = 2f;
@@ -36,11 +34,7 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        // _readMovement = CanReadInput();
-        // _readMovement = !Teleport.instance.IsTeleporting;
-        
-
-        if (!_readMovement)
+        if (!CanReadInput())
             return;
 
         if (Mathf.Abs(turnInput.axis.x) < deadZone)
@@ -52,9 +46,7 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        _readMovement = !Teleport.instance.IsTeleporting;
-        
-        if (!_readMovement)
+        if (!CanReadInput())
             return;
         
         Vector3 direction = _head.TransformDirection(moveInput.axis.x, 0f, moveInput.axis.y);
@@ -62,8 +54,11 @@ public class PlayerController : MonoBehaviour
         _characterController.Move(velocity * Time.deltaTime);
     }
 
-    // private bool CanReadInput()
-    // {
-    //     return !Teleport.instance.IsTeleporting;
-    // }
+    private bool CanReadInput()
+    {
+        if (Teleport.instance == null)
+            return true;
+        
+        return !Teleport.instance.IsTeleporting;
+    }
 }
