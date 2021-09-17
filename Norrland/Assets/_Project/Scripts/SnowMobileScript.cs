@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SnowMobileScript : MonoBehaviour
 {
-    Transform transform;
+    Transform trans;
     Rigidbody rb;
     RaycastHit rayHit;
 
@@ -15,7 +15,7 @@ public class SnowMobileScript : MonoBehaviour
 
     void Start()
     {
-        transform = GetComponent<Transform>();
+        trans = transform;
         rb = GetComponent<Rigidbody>();
     }
 
@@ -27,7 +27,7 @@ public class SnowMobileScript : MonoBehaviour
 
         Vector3 tempVect = new Vector3(h, 0, v);
         tempVect = tempVect.normalized * speed * Time.deltaTime;
-        rb.MovePosition(transform.position + tempVect);
+        rb.MovePosition(trans.position + tempVect);
     }
 
     private void FixedUpdate()
@@ -39,9 +39,9 @@ public class SnowMobileScript : MonoBehaviour
     {
         float rayLength = 2f;
 
-        Vector3 down = transform.TransformDirection(Vector3.down);
-        Vector3 up = transform.TransformDirection(Vector3.up);
-        Vector3 transformOrigin = transform.position + up * 0.5f;
+        Vector3 down = trans.TransformDirection(Vector3.down);
+        Vector3 up = trans.TransformDirection(Vector3.up);
+        Vector3 transformOrigin = trans.position + up * 0.5f;
 
         if (Physics.Raycast(transformOrigin, down, out rayHit, rayLength, layerMask))
         {
@@ -54,6 +54,6 @@ public class SnowMobileScript : MonoBehaviour
 
     private void RotateUpToRayNormal(Vector3 normal)
     {
-        transform.up = Vector3.Lerp(transform.up, normal, Time.deltaTime);
+        trans.up = Vector3.Lerp(trans.up, normal, Time.deltaTime);
     }
 }
