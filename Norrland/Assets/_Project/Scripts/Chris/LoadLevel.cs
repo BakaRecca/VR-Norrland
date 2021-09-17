@@ -47,12 +47,13 @@ public class LoadLevel : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            StartLoadingScene();
+            StartLoadingScene(levelName);
         }
     }
 
-    private void StartLoadingScene()
+    public void StartLoadingScene(string sceneName)
     {
+        levelName = sceneName; 
         StartCoroutine(LoadLevelAsync());
     }
 
