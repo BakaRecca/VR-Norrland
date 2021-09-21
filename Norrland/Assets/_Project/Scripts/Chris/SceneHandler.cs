@@ -8,6 +8,7 @@ using Valve.VR.Extras;
 public class SceneHandler : MonoBehaviour
 {
     [SerializeField] public SteamVR_LaserPointer laserPointer;
+    [SerializeField] string sceneName;
 
     void Awake()
     {
@@ -18,10 +19,10 @@ public class SceneHandler : MonoBehaviour
 
     public void PointerClick(object sender, PointerEventArgs e)
     {
-        
+        Debug.Log("PointerClick fungerar?");
         if (e.target.name == "StartButton")
         {
-            LoadLevel.instance.StartLoadingScene("LoadingScene_Cabin_Test");
+            LoadLevel.instance.StartLoadingScene(sceneName);
             Debug.Log("Button was clicked");
         }
 

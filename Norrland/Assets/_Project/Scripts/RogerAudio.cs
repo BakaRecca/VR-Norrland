@@ -10,6 +10,8 @@ public class RogerAudio : MonoBehaviour
 
     static public RogerAudio instance;
 
+   [SerializeField] bool RogerWakesUp = false;
+
     void Awake()
     {
         if (instance == null)
@@ -25,10 +27,23 @@ public class RogerAudio : MonoBehaviour
         source = GetComponent<AudioSource>();
     }
 
-    public void Play(RogerAudioType audioType, float volume)
+    private void Start()
+    {
+        if (RogerWakesUp)
+        {
+            Invoke("WakeUpRoger", 3f);
+        }
+    }
+
+    public void Play(RogerAudioType audioType, float volume = 1f)
     {
         source.clip = audioClips[((int)audioType)];
         source.volume = volume;
         source.Play();
+    }
+
+    void WakeUpRoger()
+    {
+        Play(RogerAudioType.WakingUpInCabin);
     }
 }

@@ -1,5 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
+using System.Collections.Generic;
 
 public class Bag : MonoBehaviour
 {
@@ -10,6 +12,8 @@ public class Bag : MonoBehaviour
 
     private Transform _transform;
     private List<Item> _items;
+
+    [SerializeField] UnityEvent bagIsFull;
     
     private bool IsFull => _items.Count >= requiredItemsCount;
 
@@ -37,6 +41,11 @@ public class Bag : MonoBehaviour
         
         if (IsFull && log)
             Debug.Log($"Bag is full! {_items.Count}/{requiredItemsCount}");
+
+        if (IsFull)
+        {
+            bagIsFull.Invoke();
+        }
     }
 
     private bool CanAddItem(Item item)
