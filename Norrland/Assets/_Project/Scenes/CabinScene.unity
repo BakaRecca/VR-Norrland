@@ -1645,6 +1645,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Snusdosa
       objectReference: {fileID: 0}
+    - target: {fileID: 2365237026315604460, guid: 571477798138b974085ba33fae30763d,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 0.0291946
+      objectReference: {fileID: 0}
+    - target: {fileID: 2365237026315604460, guid: 571477798138b974085ba33fae30763d,
+        type: 3}
+      propertyPath: m_Center.y
+      value: 0.004301194
+      objectReference: {fileID: 0}
     - target: {fileID: 4754855845788918457, guid: 571477798138b974085ba33fae30763d,
         type: 3}
       propertyPath: m_RootOrder
@@ -1653,7 +1663,7 @@ PrefabInstance:
     - target: {fileID: 4754855845788918457, guid: 571477798138b974085ba33fae30763d,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.2947
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4754855845788918457, guid: 571477798138b974085ba33fae30763d,
         type: 3}
@@ -1663,7 +1673,7 @@ PrefabInstance:
     - target: {fileID: 4754855845788918457, guid: 571477798138b974085ba33fae30763d,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.34
+      value: 1.3613
       objectReference: {fileID: 0}
     - target: {fileID: 4754855845788918457, guid: 571477798138b974085ba33fae30763d,
         type: 3}
