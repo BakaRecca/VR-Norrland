@@ -559,7 +559,7 @@ GameObject:
   - component: {fileID: 1022113063}
   m_Layer: 0
   m_Name: Plane
-  m_TagString: Untagged
+  m_TagString: Climbable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -598,7 +598,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 712cd3a70a5a1da41a6594aac6a97abe, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1218,7 +1218,7 @@ PrefabInstance:
     - target: {fileID: 6140032064018602415, guid: b7f7b5241799a724c8d840cbb7e12b11,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -2.4
+      value: -6.48
       objectReference: {fileID: 0}
     - target: {fileID: 6140032064018602415, guid: b7f7b5241799a724c8d840cbb7e12b11,
         type: 3}
@@ -1254,6 +1254,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6140032064021364203, guid: b7f7b5241799a724c8d840cbb7e12b11,
+        type: 3}
+      propertyPath: m_Height
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6140032064021364203, guid: b7f7b5241799a724c8d840cbb7e12b11,
+        type: 3}
+      propertyPath: m_Center.y
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 6810173965186325292, guid: b7f7b5241799a724c8d840cbb7e12b11,
+        type: 3}
+      propertyPath: m_Height
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6810173965186325292, guid: b7f7b5241799a724c8d840cbb7e12b11,
+        type: 3}
+      propertyPath: m_Center.y
+      value: 0.25
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b7f7b5241799a724c8d840cbb7e12b11, type: 3}

@@ -37,7 +37,7 @@ public class ClimberSteam : MonoBehaviour
     private void Climb()
     {
         Vector3 handVelocity = _climbingHand.GetVelocity();
-        Vector3 climbVelocity = new Vector3(handVelocity.x, -handVelocity.y, handVelocity.z);
+        Vector3 climbVelocity = new Vector3(-handVelocity.x, -handVelocity.y, -handVelocity.z);
         _characterController.Move(_transform.localRotation * climbVelocity * Time.deltaTime);
     }
 

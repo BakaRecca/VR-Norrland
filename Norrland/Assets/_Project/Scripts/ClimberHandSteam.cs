@@ -1,6 +1,9 @@
 using UnityEngine;
+using UnityEngine.Events;
 using Valve.VR;
+using Valve.VR.InteractionSystem;
 
+// [RequireComponent(typeof(Interactable))]
 public class ClimberHandSteam : MonoBehaviour
 {
     [SerializeField] private SteamVR_Action_Boolean grabAction;
@@ -15,7 +18,15 @@ public class ClimberHandSteam : MonoBehaviour
     private void Awake()
     {
         _hand = GetComponent<SteamVR_Behaviour_Pose>();
+        // _hand.onTransformUpdated.AddListener(Test);
     }
+    
+    // void Test(SteamVR_Behaviour_Pose pose, SteamVR_Input_Sources source)
+    // {
+    //     Debug.Log($"{_hand.inputSource} pos 1: {transform.position}");
+    //     transform.localPosition = Vector3.zero;
+    //     Debug.Log($"{_hand.inputSource} pos 2: {transform.position}");
+    // }
 
     private void Update()
     {
@@ -80,4 +91,6 @@ public class ClimberHandSteam : MonoBehaviour
         if (log)
             Debug.Log($"{other.name} EXIT - count: {_touchCount}");
     }
+    
+    // onTransformUpdated()
 }
