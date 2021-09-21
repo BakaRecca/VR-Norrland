@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Snusdosa
+  m_Name: Pimpelspo 1
   m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
   m_ShaderKeywords: _METALLICGLOSSMAP _NORMALMAP _PARALLAXMAP
   m_LightmapFlags: 4
@@ -20,7 +20,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _BumpMap:
-        m_Texture: {fileID: 2800000, guid: cfbcb8b57805e7643a924973703a7f63, type: 3}
+        m_Texture: {fileID: 2800000, guid: 27ebf42ae8841954192314d0c15eb7c3, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DetailAlbedoMap:
@@ -40,19 +40,19 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 3e7a88be0e5d2eb41b29cb358e81951f, type: 3}
+        m_Texture: {fileID: 2800000, guid: 0a6e7d98a16580a488c66985ba517607, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
-        m_Texture: {fileID: 2800000, guid: 127276f579a867a43a8c223f447e8481, type: 3}
+        m_Texture: {fileID: 2800000, guid: 3df38cb52e45d024a86ca31ce0465b24, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _OcclusionMap:
-        m_Texture: {fileID: 2800000, guid: 46a6aaa0e31340a429c57b2162d23cc1, type: 3}
+        m_Texture: {fileID: 2800000, guid: f807fafd0eec4e24eae97fff574ccfeb, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _ParallaxMap:
-        m_Texture: {fileID: 2800000, guid: d4cba7cee21d8c342acb0c6d78e34dc6, type: 3}
+        m_Texture: {fileID: 2800000, guid: 41d657cb43b212748918c32e40e6a97c, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Ints: []
@@ -61,7 +61,7 @@ Material:
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
-    - _GlossMapScale: 1
+    - _GlossMapScale: 0
     - _Glossiness: 0.5
     - _GlossyReflections: 1
     - _Metallic: 0
