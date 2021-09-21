@@ -12,6 +12,7 @@ public class LoadLevel : MonoBehaviour
 
     public static LoadLevel instance;
 
+
     [SerializeField, Range(1f, 3f)] private float transitionDelayTime;
 
     [SerializeField] private Image blankImage;
@@ -25,6 +26,7 @@ public class LoadLevel : MonoBehaviour
     private void Start()
     {
         StartCoroutine(FadeIn());
+
     }
 
     private void Awake()
@@ -48,6 +50,11 @@ public class LoadLevel : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             StartLoadingScene(levelName);
+        }
+
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            RogerAudio.instance.Play(RogerAudioType.WakingUpInCabin,0.8f);
         }
     }
 
