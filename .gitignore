@@ -9,6 +9,7 @@ Norrland/[Bb]uild/
 Norrland/[Bb]uilds/
 Norrland/[Ll]ogs/
 Norrland/[Mm]emoryCaptures/
+Builds/
 
 # Asset meta data should only be ignored when the corresponding asset is also ignored
 !/[Aa]ssets/**/*.meta
