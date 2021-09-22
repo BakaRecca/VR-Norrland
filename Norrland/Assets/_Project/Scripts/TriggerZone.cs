@@ -1,16 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.Events;
 public class TriggerZone : MonoBehaviour
 {
+    [SerializeField] string tagToTrigger;
+
+    [SerializeField] UnityEvent triggerOnEnter;
     private void OnTriggerEnter(Collider other)
     {
-        if (!other.CompareTag("Player"))
+        if (!other.CompareTag(tagToTrigger))
         {
             return;
         }
-        RogerAudio.instance.Play(RogerAudioType.BeforeHeadingOut);
+        triggerOnEnter.Invoke();
 
         Destroy(gameObject);
     }
