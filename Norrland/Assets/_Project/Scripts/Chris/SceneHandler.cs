@@ -22,7 +22,7 @@ public class SceneHandler : MonoBehaviour
         Debug.Log("PointerClick fungerar?");
         if (e.target.name == "StartButton")
         {
-            LoadLevel.instance.StartLoadingScene(sceneName);
+            LoadLevel.Instance.StartLoadingScene(sceneName);
             Debug.Log("Button was clicked");
         }
 

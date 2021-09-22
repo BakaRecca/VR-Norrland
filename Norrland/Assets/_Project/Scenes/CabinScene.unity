@@ -583,6 +583,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af1d160f394c03b4ba5b763940aa4ad5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tagToTrigger: Player
+  triggerOnEnter:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1099568632}
+        m_TargetAssemblyTypeName: RogerAudio, Assembly-CSharp
+        m_MethodName: RogerHouseTrigger
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!54 &770570509
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -610,8 +626,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1, y: 1.041915, z: 0.6700249}
+  m_Center: {x: 2.417258e-11, y: 0.12335115, z: -0.033257995}
 --- !u!23 &770570511
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -875,7 +891,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 9224421d2d7ad2449a59f30939e743c9, type: 3}
   - {fileID: 8300000, guid: 185f276c7f2e44b459e8b418708bee31, type: 3}
   - {fileID: 8300000, guid: fc9906915031dc64fb4f8cce56d6f1f3, type: 3}
-  RogerWakesUp: 1
+  rogerWakesUp: 1
 --- !u!4 &1099568633
 Transform:
   m_ObjectHideFlags: 0
@@ -915,31 +931,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 447954, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.973
+      value: 2.187
       objectReference: {fileID: 0}
     - target: {fileID: 447954, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.064
+      value: 0.036
       objectReference: {fileID: 0}
     - target: {fileID: 447954, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -4.988
+      value: -6.319
       objectReference: {fileID: 0}
     - target: {fileID: 447954, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.005100921
+      value: 0.8789421
       objectReference: {fileID: 0}
     - target: {fileID: 447954, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.000084566884
+      value: -0.000008305508
       objectReference: {fileID: 0}
     - target: {fileID: 447954, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.99989593
+      value: 0.47692856
       objectReference: {fileID: 0}
     - target: {fileID: 447954, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.01349959
+      value: -0.000015306403
       objectReference: {fileID: 0}
     - target: {fileID: 447954, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -947,11 +963,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 447954, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 163.15
+      value: 56.97
       objectReference: {fileID: 0}
     - target: {fileID: 447954, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
+      value: -0.002
       objectReference: {fileID: 0}
     - target: {fileID: 494198, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1175,6 +1191,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.z
       value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 3962656749364916022, guid: 473cc65f28a5ecf4bb79e615acb3db79,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6135166432685169997, guid: 473cc65f28a5ecf4bb79e615acb3db79,
         type: 3}
