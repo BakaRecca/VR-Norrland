@@ -1,31 +1,40 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.EventSystems;
-using UnityEngine.UI;
 using Valve.VR.Extras;
 
 public class SceneHandler : MonoBehaviour
 {
-    [SerializeField] public SteamVR_LaserPointer laserPointer;
+    [SerializeField] private SteamVR_LaserPointer[] laserPointers;
     [SerializeField] string sceneName;
+    
+    [Header("DEBUG")]
+    [SerializeField] private bool log;
 
-    void Awake()
+    private void OnEnable()
     {
-        laserPointer.PointerIn += PointerInside;
-        laserPointer.PointerOut += PointerOutside;
-        laserPointer.PointerClick += PointerClick;
+        foreach (SteamVR_LaserPointer pointer in laserPointers)
+        {
+            pointer.PointerIn += PointerInside;
+            pointer.PointerOut += PointerOutside;
+            pointer.PointerClick += PointerClick;
+        }
     }
 
-    public void PointerClick(object sender, PointerEventArgs e)
+    private void OnDisable()
     {
-        Debug.Log("PointerClick fungerar?");
+        foreach (SteamVR_LaserPointer pointer in laserPointers)
+        {
+            pointer.PointerIn -= PointerInside;
+            pointer.PointerOut -= PointerOutside;
+            pointer.PointerClick -= PointerClick;
+        }
+    }
+
+    private void PointerClick(object sender, PointerEventArgs e)
+    {
         if (e.target.name == "StartButton")
         {
             LoadLevel.Instance.StartLoadingScene(sceneName);
-            Debug.Log("Button was clicked");
         }
-
         else if (e.target.name == "QuitButton")
         {
 #if UNITY_EDITOR
@@ -36,21 +45,25 @@ public class SceneHandler : MonoBehaviour
         }
     }
 
-    public void PointerInside(object sender, PointerEventArgs e)
+    private void PointerInside(object sender, PointerEventArgs e)
     {
+        if (!log)
+            return;
         
         if (e.target.name == "StartButton" || e.target.name == "QuitButton")
         {
-            Debug.Log("Button was entered");
+            // Debug.Log("Button was entered");
         }
     }
 
-    public void PointerOutside(object sender, PointerEventArgs e)
+    private void PointerOutside(object sender, PointerEventArgs e)
     {
+        if (!log)
+            return;
         
         if (e.target.name == "StartButton" || e.target.name == "QuitButton")
         {
-            Debug.Log("Button was exited");
+            // Debug.Log("Button was exited");
         }
     }
 }

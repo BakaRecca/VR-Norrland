@@ -11,7 +11,7 @@ public class LoadLevel : MonoBehaviour
     [SerializeField, Range(1f, 3f)] private float transitionDelayTime;
     
     private Color imageColorBlank;
-    public string levelName;
+    private string levelName;
     
     private void Reset()
     {
