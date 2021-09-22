@@ -28,6 +28,8 @@ public class LoadLevel : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        
+        transform.GetChild(0).gameObject.SetActive(true);
 
         imageColorBlank = blankImage.color;
         DontDestroyOnLoad(gameObject);
