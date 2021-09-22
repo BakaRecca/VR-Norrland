@@ -1,49 +1,53 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class RogerAudio : MonoBehaviour
 {
+    public static RogerAudio Instance;
+    
     [SerializeField] List<AudioClip> audioClips;
+    [SerializeField] private bool rogerWakesUp;
 
     private AudioSource source;
-
-    static public RogerAudio instance;
-
-   [SerializeField] bool RogerWakesUp = false;
-
-    void Awake()
+    
+    private void Awake()
     {
-        if (instance == null)
+        if (Instance == null)
         {
-            instance = this;    
+            Instance = this;    
         }
-
-        else if (instance != null)
+        else if (Instance != null)
         {
             Destroy(gameObject);
         }
 
         source = GetComponent<AudioSource>();
+        
+        DontDestroyOnLoad(gameObject);
     }
 
     private void Start()
     {
-        if (RogerWakesUp)
+        if (rogerWakesUp)
         {
-            Invoke("WakeUpRoger", 3f);
+            Invoke(nameof(WakeUpRoger), 3f);
         }
     }
 
     public void Play(RogerAudioType audioType, float volume = 1f)
     {
-        source.clip = audioClips[((int)audioType)];
+        source.clip = audioClips[(int)audioType];
         source.volume = volume;
         source.Play();
     }
 
-    void WakeUpRoger()
+    private void WakeUpRoger()
     {
         Play(RogerAudioType.WakingUpInCabin);
+    }
+
+    public void RogerHouseTrigger()
+    {
+        Play(RogerAudioType.BeforeHeadingOut);
     }
 }

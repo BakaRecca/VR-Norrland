@@ -20,13 +20,13 @@ public class Door : MonoBehaviour
             return;
         }
 
-        LoadLevel.instance.StartLoadingScene(sceneToLoad);
+        LoadLevel.Instance.StartLoadingScene(sceneToLoad);
     }
 
     public void UnlockDoor()
     {
         isOpen = true;
-        RogerAudio.instance.Play(RogerAudioType.WakingUpInCabin);
+        RogerAudio.Instance.Play(RogerAudioType.WakingUpInCabin);
     }
 
     void HandHoverUpdate(Hand hand)
@@ -36,6 +36,6 @@ public class Door : MonoBehaviour
         {
             OpenDoor();
         }
-        Debug.Log("FårVihanden?");
+        Debug.Log("FÃ¥rVihanden?");
     }
 }

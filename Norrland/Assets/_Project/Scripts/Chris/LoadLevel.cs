@@ -1,61 +1,41 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class LoadLevel : MonoBehaviour
 {
+    public static LoadLevel Instance;
+    
+    [SerializeField] private Image blankImage;
+    [SerializeField, Range(1f, 3f)] private float transitionDelayTime;
+    
     private Color imageColorBlank;
     public string levelName;
-
-    public static LoadLevel instance;
-
-
-    [SerializeField, Range(1f, 3f)] private float transitionDelayTime;
-
-    [SerializeField] private Image blankImage;
-
+    
     private void Reset()
     {
         transitionDelayTime = 1f;
     }
-
-
-    private void Start()
-    {
-        StartCoroutine(FadeIn());
-
-    }
-
+    
     private void Awake()
     {
-        if (instance == null)
+        if (Instance == null)
         {
-            instance = this;
+            Instance = this;
         }
-
-        else if (instance != null)
+        else if (Instance != null)
         {
-            Destroy(this);
+            Destroy(gameObject);
         }
 
         imageColorBlank = blankImage.color;
         DontDestroyOnLoad(gameObject);
     }
-
-    void Update()
+    
+    private void Start()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            StartLoadingScene(levelName);
-        }
-
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            RogerAudio.instance.Play(RogerAudioType.WakingUpInCabin,0.8f);
-        }
+        StartCoroutine(FadeIn());
     }
 
     public void StartLoadingScene(string sceneName)
@@ -81,8 +61,7 @@ public class LoadLevel : MonoBehaviour
             blankImage.color = new Color(imageColorBlank.r, imageColorBlank.g, imageColorBlank.b, alpha);
         }
     }
-
-
+    
     private IEnumerator FadeOut()
     {
         float alpha = 0f;
@@ -100,8 +79,7 @@ public class LoadLevel : MonoBehaviour
             blankImage.color = new Color(imageColorBlank.r, imageColorBlank.g, imageColorBlank.b, alpha);
         }
     }
-
-
+    
     private IEnumerator LoadLevelAsync()
     {
         StartCoroutine(FadeOut());
@@ -127,5 +105,4 @@ public class LoadLevel : MonoBehaviour
 
         StartCoroutine(FadeIn());
     }
-
 }
