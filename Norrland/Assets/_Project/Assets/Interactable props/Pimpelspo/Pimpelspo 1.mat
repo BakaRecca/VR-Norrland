@@ -40,19 +40,19 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 04f310ca3ae10a24896b605bb1eb6c65, type: 3}
+        m_Texture: {fileID: 2800000, guid: c43704ae191226e4ba8e3d7c7b61ed5c, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
-        m_Texture: {fileID: 2800000, guid: 8cdc9050f05e1ec468421c137e041ef4, type: 3}
+        m_Texture: {fileID: 2800000, guid: 946262b5e7e428848bb6af9e54fa02b4, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _OcclusionMap:
-        m_Texture: {fileID: 2800000, guid: e36db70a952d1874cb36b28f126625a0, type: 3}
+        m_Texture: {fileID: 2800000, guid: 387453abba503dd4ba4d0521d4f8b154, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _ParallaxMap:
-        m_Texture: {fileID: 2800000, guid: a412dc8d9ec4e02459e441a604749a63, type: 3}
+        m_Texture: {fileID: 2800000, guid: 6dca49514824d9a4d8cf1e11cc8fb950, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Ints: []
