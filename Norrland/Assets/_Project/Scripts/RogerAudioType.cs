@@ -2,9 +2,9 @@ public enum RogerAudioType
 {
     WakingUpInCabin,
     BeforeHeadingOut,
+    BackpackPacked,
     MaybeTakeScooter,
-    WrongWay,
+    WhatAGlide,
     ThinIceImNotAPussy,
-    HolyBeJezuz,
-    ISurvived
+    FallsIN
 }

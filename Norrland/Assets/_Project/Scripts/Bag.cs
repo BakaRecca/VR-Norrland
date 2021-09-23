@@ -44,6 +44,7 @@ public class Bag : MonoBehaviour
         if (IsFull)
         {
             bagIsFull.Invoke();
+            GetComponent<RogerAudio>().RogerPacked(); // Chris ändrat för att kalla på ljudet
         }
     }
 
