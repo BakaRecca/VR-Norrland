@@ -32,6 +32,7 @@ public class RogerAudio : MonoBehaviour
         {
             Invoke(nameof(WakeUpRoger), 3f);
         }
+
     }
 
     public void Play(RogerAudioType audioType, float volume = 1f)
@@ -50,4 +51,30 @@ public class RogerAudio : MonoBehaviour
     {
         Play(RogerAudioType.BeforeHeadingOut);
     }
+
+    public void RogerPacked()
+    {
+        Play(RogerAudioType.BackpackPacked);
+    }
+
+    public void RogerStandingByScooter()
+    {
+        Play(RogerAudioType.MaybeTakeScooter);
+    }
+
+    public void RogerRidingTheScooter()
+    {
+        Play(RogerAudioType.WhatAGlide);
+    }
+
+    public void RogerLookingAtIce()
+    {
+        Play(RogerAudioType.ThinIceImNotAPussy);
+    }
+
+    public void RogerFallsIN()
+    {
+        Play(RogerAudioType.FallsIN);
+    }
+
 }
