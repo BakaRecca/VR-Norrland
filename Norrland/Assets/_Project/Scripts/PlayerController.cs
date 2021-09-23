@@ -1,14 +1,24 @@
+using _Project.Scripts.EnumFlags;
 using UnityEngine;
 using Valve.VR;
+using Valve.VR.Extras;
 using Valve.VR.InteractionSystem;
 
 [RequireComponent(typeof(CharacterController))]
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] private SteamVR_Action_Boolean teleportAction;
-    [SerializeField] private SteamVR_Action_Boolean turnAction;
+    [Header("Input / Actions")]
     [SerializeField] private SteamVR_Action_Vector2 moveInput;
     [SerializeField] private SteamVR_Action_Vector2 turnInput;
+
+    [Header("Controllers")]
+    [SerializeField] private SteamVR_LaserPointer[] laserPointers;
+    // []
+
+    [Header("Active Controllers")]
+    [SerializeField] private ControllerType controllerType;
+    
+    [Header("Motion Movement Settings")]
     [SerializeField] private float moveSpeed;
     [SerializeField] private float turnSpeed;
     [SerializeField, Range(0.01f, 0.9f)] private float deadZone;
@@ -27,13 +37,55 @@ public class PlayerController : MonoBehaviour
 
     private void Awake()
     {
+        GetAllComponents();
+    }
+
+    private void GetAllComponents()
+    {
         _transform = transform;
         _head = Player.instance.hmdTransform;
         _characterController = GetComponent<CharacterController>();
     }
 
+    private void Start()
+    {
+        Init();
+    }
+
+    private void Init()
+    {
+        SetLaserPointers(controllerType.HasFlag(ControllerType.LaserPointers));
+        SetTeleporting(controllerType.HasFlag(ControllerType.Teleporting));
+        SetMotionMovement(controllerType.HasFlag(ControllerType.MotionMovement));
+        SetClimbing(controllerType.HasFlag(ControllerType.Climbing));
+    }
+
     private void Update()
     {
+        UpdateMotionRotation();
+    }
+
+    private void FixedUpdate()
+    {
+        UpdateMotionMovement();
+    }
+
+    private bool CanReadInput()
+    {
+        if (!controllerType.HasFlag(ControllerType.Teleporting))
+            return true;
+        
+        if (Teleport.instance == null)
+            return true;
+        
+        return !Teleport.instance.IsTeleporting;
+    }
+
+    private void UpdateMotionRotation()
+    {
+        if (!controllerType.HasFlag(ControllerType.MotionMovement))
+            return;
+        
         if (!CanReadInput())
             return;
 
@@ -44,8 +96,11 @@ public class PlayerController : MonoBehaviour
         _transform.Rotate(Vector3.up, pitch * turnSpeed * Time.deltaTime);
     }
 
-    private void FixedUpdate()
+    private void UpdateMotionMovement()
     {
+        if (!controllerType.HasFlag(ControllerType.MotionMovement))
+            return;
+        
         if (!CanReadInput())
             return;
         
@@ -54,11 +109,46 @@ public class PlayerController : MonoBehaviour
         _characterController.Move(velocity * Time.deltaTime);
     }
 
-    private bool CanReadInput()
+    #region Controllers
+    
+    private void SetLaserPointers(bool active)
     {
-        if (Teleport.instance == null)
-            return true;
-        
-        return !Teleport.instance.IsTeleporting;
+        foreach (SteamVR_LaserPointer pointer in laserPointers)
+        {
+            pointer.enabled = active;
+        }
+
+        controllerType = controllerType.SetFlag(ControllerType.LaserPointers, active);
     }
+    
+    public void EnableLaserPointers() => SetLaserPointers(true);
+    public void DisableLaserPointers() => SetLaserPointers(false);
+
+    private void SetTeleporting(bool active)
+    {
+        controllerType = controllerType.SetFlag(ControllerType.Teleporting, active);
+    }
+
+    public void EnableTeleporting() => SetTeleporting(true);
+    public void DisableTeleporting() => SetTeleporting(false);
+    
+    private void SetMotionMovement(bool active)
+    {
+        _characterController.enabled = active;
+        
+        controllerType = controllerType.SetFlag(ControllerType.MotionMovement, active);
+    }
+
+    public void EnableMotionMovement() => SetMotionMovement(true);
+    public void DisableMotionMovement() => SetMotionMovement(false);
+    
+    private void SetClimbing(bool active)
+    {
+        controllerType = controllerType.SetFlag(ControllerType.Climbing, active);
+    }
+
+    public void EnableClimbing() => SetClimbing(true);
+    public void DisableClimbing() => SetClimbing(false);
+    
+    #endregion
 }
