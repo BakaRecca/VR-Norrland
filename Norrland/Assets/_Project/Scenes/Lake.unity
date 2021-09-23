@@ -492,7 +492,7 @@ Transform:
   - {fileID: 96684092}
   - {fileID: 157684612}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &386306189
 PrefabInstance:
@@ -716,7 +716,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 475244, guid: 7a135b1a2cb9c8f488d4dd00c55ab283, type: 3}
       propertyPath: m_RootOrder
-      value: 10
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 475244, guid: 7a135b1a2cb9c8f488d4dd00c55ab283, type: 3}
       propertyPath: m_LocalPosition.x
@@ -855,7 +855,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &790622544
 PrefabInstance:
@@ -1092,7 +1092,7 @@ MonoBehaviour:
       - 0
       globalNormalsAngle: 90
       flipNormals: 0
-    vertexPathUpToDate: 0
+    vertexPathUpToDate: 1
     vertexPathMaxAngleError: 0.3
     vertexPathMinVertexSpacing: 0.01
     showTransformTool: 1
@@ -1125,7 +1125,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1043967177 stripped
 GameObject:
@@ -1425,7 +1425,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4318825506812168, guid: ac13b414a3bb6b2449147c86208aead3, type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 4318825506812168, guid: ac13b414a3bb6b2449147c86208aead3, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1502,7 +1502,7 @@ Transform:
   - {fileID: 1563461179}
   - {fileID: 1163408094}
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1254296294
 PrefabInstance:
@@ -1617,7 +1617,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 447954, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 447954, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2097,7 +2097,7 @@ Transform:
   m_LocalScale: {x: 1.4083, y: 1.4083, z: 1.4083}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1397671689
 MonoBehaviour:
@@ -2450,7 +2450,7 @@ PrefabInstance:
     - target: {fileID: 1046885932711618907, guid: 2fed1901be3be9a43b71705ad6a828c9,
         type: 3}
       propertyPath: m_Name
-      value: Snowmobile (1)
+      value: Snowmobile
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2fed1901be3be9a43b71705ad6a828c9, type: 3}
@@ -2565,75 +2565,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1774893523}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &1886661541
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 417877748134015969, guid: 2fed1901be3be9a43b71705ad6a828c9,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 417877748134015969, guid: 2fed1901be3be9a43b71705ad6a828c9,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 300.248
-      objectReference: {fileID: 0}
-    - target: {fileID: 417877748134015969, guid: 2fed1901be3be9a43b71705ad6a828c9,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 25.03762
-      objectReference: {fileID: 0}
-    - target: {fileID: 417877748134015969, guid: 2fed1901be3be9a43b71705ad6a828c9,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 231.293
-      objectReference: {fileID: 0}
-    - target: {fileID: 417877748134015969, guid: 2fed1901be3be9a43b71705ad6a828c9,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.86812866
-      objectReference: {fileID: 0}
-    - target: {fileID: 417877748134015969, guid: 2fed1901be3be9a43b71705ad6a828c9,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 417877748134015969, guid: 2fed1901be3be9a43b71705ad6a828c9,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0.49633935
-      objectReference: {fileID: 0}
-    - target: {fileID: 417877748134015969, guid: 2fed1901be3be9a43b71705ad6a828c9,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 417877748134015969, guid: 2fed1901be3be9a43b71705ad6a828c9,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 417877748134015969, guid: 2fed1901be3be9a43b71705ad6a828c9,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: -59.516
-      objectReference: {fileID: 0}
-    - target: {fileID: 417877748134015969, guid: 2fed1901be3be9a43b71705ad6a828c9,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1046885932711618907, guid: 2fed1901be3be9a43b71705ad6a828c9,
-        type: 3}
-      propertyPath: m_Name
-      value: Snowmobile
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 2fed1901be3be9a43b71705ad6a828c9, type: 3}
 --- !u!1 &1968117926
 GameObject:
   m_ObjectHideFlags: 0
