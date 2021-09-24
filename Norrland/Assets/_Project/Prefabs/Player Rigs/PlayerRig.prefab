@@ -1413,18 +1413,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f08c16d901145ad4d8314d59a5d3fb1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  teleportAction:
-    actionPath: /actions/default/in/Teleport
-    needsReinit: 0
-  turnAction:
-    actionPath: /actions/default/in/SnapTurnLeft
-    needsReinit: 0
   moveInput:
     actionPath: /actions/platformer/in/Move
     needsReinit: 0
   turnInput:
     actionPath: /actions/platformer/in/Turn
     needsReinit: 0
+  laserPointers: []
+  controllerType: 0
   moveSpeed: 2
   turnSpeed: 90
   deadZone: 0.25
