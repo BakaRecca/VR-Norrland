@@ -13,7 +13,8 @@ public class PlayerController : MonoBehaviour
 
     [Header("Controllers")]
     [SerializeField] private SteamVR_LaserPointer[] laserPointers;
-    // []
+    [SerializeField] private GameObject[] icePickObjects;
+    [SerializeField] private Hand[] hands;
 
     [Header("Active Controllers")]
     [SerializeField] private ControllerType controllerType;
@@ -63,6 +64,14 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {
         UpdateMotionRotation();
+        for (int i = 0; i < hands.Length; i++)
+        {
+            // hands[i].AttachObject(icePickObjects[i], GrabTypes.Pinch, Hand.AttachmentFlags.DetachOthers);
+            // hands[i].skeleton.BlendToPoser(icePickObjects[i].GetComponent<SteamVR_Skeleton_Poser>());
+            Debug.Log($"attached? {hands[i].ObjectIsAttached(icePickObjects[i])}");
+            // Debug.Log($"name: {hands[i].currentAttachedObject.name}");
+            Debug.Log($"skeleton: {hands[i].skeleton}");
+        }
     }
 
     private void FixedUpdate()
@@ -144,6 +153,18 @@ public class PlayerController : MonoBehaviour
     
     private void SetClimbing(bool active)
     {
+        for (int i = 0; i < hands.Length; i++)
+        {
+            icePickObjects[i].SetActive(active);
+
+            if (active)
+            {
+                hands[i].AttachObject(icePickObjects[i], GrabTypes.Scripted);
+                // hands[i].skeleton.BlendToPoser(icePickObjects[i].GetComponent<SteamVR_Skeleton_Poser>());
+                Debug.Log($"attached? {hands[i].ObjectIsAttached(icePickObjects[i])} - name: {hands[i].currentAttachedObject.name}");
+            }
+        }
+
         controllerType = controllerType.SetFlag(ControllerType.Climbing, active);
     }
 
