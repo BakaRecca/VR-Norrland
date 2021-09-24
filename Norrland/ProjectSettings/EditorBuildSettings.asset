@@ -6,13 +6,13 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/_Project/Scenes/SwitchScenes/Menu.unity
+    path: Assets/_Project/Scenes/Menu.unity
     guid: 38e181cf30a0e294f973cb69e322b2ca
   - enabled: 1
     path: Assets/_Project/Scenes/CabinScene.unity
     guid: eba123d7ba751f54b94c93eae86f0b3a
   - enabled: 1
-    path: Assets/_Project/Scenes/SnowMobileScene.unity
+    path: Assets/_Project/Scenes/TempScener/SnowMobileScene.unity
     guid: 9fde01b37e5ef7c4999a508897c640e7
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: bfa1182bd221b4ca89619141f66f1260,
