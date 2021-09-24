@@ -13,7 +13,7 @@ public class PlayerController : MonoBehaviour
 
     [Header("Controllers")]
     [SerializeField] private SteamVR_LaserPointer[] laserPointers;
-    // []
+    [SerializeField] private GameObject[] icePickObjects;
 
     [Header("Active Controllers")]
     [SerializeField] private ControllerType controllerType;
