@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18301888, g: 0.22640389, b: 0.293405, a: 1}
+  m_IndirectSpecularColor: {r: 0.18301886, g: 0.22640386, b: 0.2934048, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1852,7 +1852,7 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 1, z: 0}
---- !u!114 &1254296299
+--- !u!114 &1254296297
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1861,18 +1861,28 @@ MonoBehaviour:
   m_GameObject: {fileID: 1254296295}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 473ea293378559749aabf3bcde5b62e3, type: 3}
+  m_Script: {fileID: 11500000, guid: 27991c206a5e66147bb8ee3ef31c8bac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RightHand: {fileID: 36229248}
-  LeftHand: {fileID: 1371316979}
-  ToggleGripButton:
-    actionPath: /actions/default/in/GrabGrip
-    needsReinit: 0
-  position:
-    actionPath: /actions/mixedreality/in/ExternalCamera
-    needsReinit: 0
-  ClimberHandle: {fileID: 0}
+  actionSet:
+    actionSetPath: /actions/buggy
+  forSources: 0
+  disableAllOtherActionSets: 0
+  activateOnStart: 1
+  deactivateOnDestroy: 1
+  initialPriority: 0
+--- !u!114 &1254296298 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114000011957598740, guid: dc06161b6d97feb419f45f03b62e14b9,
+    type: 3}
+  m_PrefabInstance: {fileID: 1254296294}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 36229246}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a5fb0ca93b55ef4b8d54b512b103341, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!54 &1254296300
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2472,8 +2482,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 465e6963b5389d043b508686ef66a939, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  throttle:
+    actionPath: /actions/buggy/in/Throttle
+    needsReinit: 0
+  hand: {fileID: 1254296298}
   pathCreator: {fileID: 1043191483}
-  speed: 5
+  speed: 0
 --- !u!1001 &1774893523
 PrefabInstance:
   m_ObjectHideFlags: 0

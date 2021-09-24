@@ -198,7 +198,8 @@
       "/actions/platformer/in/Move": "Move",
       "/actions/platformer/in/Turn": "Turn",
       "/actions/Debug/in/RestartScene": "Restart Scene",
-      "/actions/Debug/in/RespawnAll": "Respawn All"
+      "/actions/Debug/in/RespawnAll": "Respawn All",
+      "/actions/buggy/in/Throttle": "Throttle"
     }
   ]
 }
