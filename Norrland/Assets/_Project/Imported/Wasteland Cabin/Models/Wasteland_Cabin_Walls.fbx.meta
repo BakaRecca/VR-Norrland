@@ -1,58 +1,146 @@
 fileFormatVersion: 2
 guid: d86df224070957443a95ba62cce81fd7
-timeCreated: 1495639949
-licenseType: Store
 ModelImporter:
-  serializedVersion: 19
-  fileIDToRecycleName:
-    100000: Fence
-    100002: Floor
-    100004: Interier_Wall
-    100006: Pillier
-    100008: UnderRoof
-    100010: WallOut
-    100012: //RootNode
-    100014: Window
-    400000: Fence
-    400002: Floor
-    400004: Interier_Wall
-    400006: Pillier
-    400008: UnderRoof
-    400010: WallOut
-    400012: //RootNode
-    400014: Window
-    2300000: Fence
-    2300002: Floor
-    2300004: Interier_Wall
-    2300006: Pillier
-    2300008: UnderRoof
-    2300010: WallOut
-    2300012: Window
-    3300000: Fence
-    3300002: Floor
-    3300004: Interier_Wall
-    3300006: Pillier
-    3300008: UnderRoof
-    3300010: WallOut
-    3300012: Window
-    4300000: UnderRoof
-    4300002: Pillier
-    4300004: Floor
-    4300006: Interier_Wall
-    4300008: WallOut
-    4300010: Fence
-    4300012: Window
-    6400000: Fence
-    6400002: Floor
-    6400004: Interier_Wall
-    6400006: Pillier
-    6400008: UnderRoof
-    6400010: WallOut
-    6400012: Window
+  serializedVersion: 21100
+  internalIDToNameTable:
+  - first:
+      1: 100000
+    second: Fence
+  - first:
+      1: 100002
+    second: Floor
+  - first:
+      1: 100004
+    second: Interier_Wall
+  - first:
+      1: 100006
+    second: Pillier
+  - first:
+      1: 100008
+    second: UnderRoof
+  - first:
+      1: 100010
+    second: WallOut
+  - first:
+      1: 100012
+    second: //RootNode
+  - first:
+      1: 100014
+    second: Window
+  - first:
+      4: 400000
+    second: Fence
+  - first:
+      4: 400002
+    second: Floor
+  - first:
+      4: 400004
+    second: Interier_Wall
+  - first:
+      4: 400006
+    second: Pillier
+  - first:
+      4: 400008
+    second: UnderRoof
+  - first:
+      4: 400010
+    second: WallOut
+  - first:
+      4: 400012
+    second: //RootNode
+  - first:
+      4: 400014
+    second: Window
+  - first:
+      23: 2300000
+    second: Fence
+  - first:
+      23: 2300002
+    second: Floor
+  - first:
+      23: 2300004
+    second: Interier_Wall
+  - first:
+      23: 2300006
+    second: Pillier
+  - first:
+      23: 2300008
+    second: UnderRoof
+  - first:
+      23: 2300010
+    second: WallOut
+  - first:
+      23: 2300012
+    second: Window
+  - first:
+      33: 3300000
+    second: Fence
+  - first:
+      33: 3300002
+    second: Floor
+  - first:
+      33: 3300004
+    second: Interier_Wall
+  - first:
+      33: 3300006
+    second: Pillier
+  - first:
+      33: 3300008
+    second: UnderRoof
+  - first:
+      33: 3300010
+    second: WallOut
+  - first:
+      33: 3300012
+    second: Window
+  - first:
+      43: 4300000
+    second: UnderRoof
+  - first:
+      43: 4300002
+    second: Pillier
+  - first:
+      43: 4300004
+    second: Floor
+  - first:
+      43: 4300006
+    second: Interier_Wall
+  - first:
+      43: 4300008
+    second: WallOut
+  - first:
+      43: 4300010
+    second: Fence
+  - first:
+      43: 4300012
+    second: Window
+  - first:
+      64: 6400000
+    second: Fence
+  - first:
+      64: 6400002
+    second: Floor
+  - first:
+      64: 6400004
+    second: Interier_Wall
+  - first:
+      64: 6400006
+    second: Pillier
+  - first:
+      64: 6400008
+    second: UnderRoof
+  - first:
+      64: 6400010
+    second: WallOut
+  - first:
+      64: 6400012
+    second: Window
+  externalObjects: {}
   materials:
-    importMaterials: 1
+    materialImportMode: 1
     materialName: 0
     materialSearch: 1
+    materialLocation: 0
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
@@ -65,12 +153,15 @@ ModelImporter:
     animationImportWarnings: 
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
     animationCompression: 1
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
     animationWrapMode: 0
     extraExposedTransformPaths: []
+    extraUserProperties: []
     clipAnimations: []
     isReadable: 1
   meshes:
@@ -78,26 +169,45 @@ ModelImporter:
     globalScale: 1
     meshCompression: 0
     addColliders: 1
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importVisibility: 0
     importBlendShapes: 1
+    importCameras: 0
+    importLights: 0
+    fileIdsGeneration: 1
     swapUVChannels: 0
     generateSecondaryUV: 1
     useFileUnits: 1
-    optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    meshOptimizationFlags: -1
+    indexFormat: 1
     secondaryUVAngleDistortion: 8
-    secondaryUVAreaDistortion: 15.000001
+    secondaryUVAreaDistortion: 15
     secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 1
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
     secondaryUVPackMargin: 4
     useFileScale: 0
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
     tangentImportMode: 3
+    normalCalculationMode: 0
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 1
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
   importAnimation: 1
-  copyAvatar: 0
   humanDescription:
-    serializedVersion: 2
+    serializedVersion: 3
     human: []
     skeleton: []
     armTwist: 0.5
@@ -107,14 +217,17 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
+    globalScale: 1
     rootMotionBoneName: 
-    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
     hasTranslationDoF: 0
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 0
   humanoidOversampling: 1
+  avatarSetup: 0
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 0
   additionalBone: 0
   userData: 
   assetBundleName: 
