@@ -8,18 +8,17 @@ public class FollowPath : MonoBehaviour
 {
     [SerializeField] private SteamVR_Action_Single throttle;
     [SerializeField] private SteamVR_Behaviour_Pose hand;
+    [SerializeField] private float throttleAmount;
+    
+    [SerializeField] private float speed = 0;
+
+    private float minSpeed = 0f;
+    private float maxSpeed = 20f;
+    private float timeZeroToMax = 4f;
+    private float acceleratePerSec;
+    private float distanceTravelled;
 
     public PathCreator pathCreator;
-
-    public float minSpeed = 0f;
-    public float maxSpeed = 20f;
-    public float timeZeroToMax = 4f;
-    float acceleratePerSec;
-
-    public float speed = 0;
-
-    private float throttleAmount;
-    private float distanceTravelled;
 
     private void Awake()
     {
@@ -29,8 +28,6 @@ public class FollowPath : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Debug.Log("FixedUpdate realTime: " + Time.realtimeSinceStartup);
-
         if (throttleAmount < 0.01f)
         {
             if (speed > 0f)
@@ -39,12 +36,10 @@ public class FollowPath : MonoBehaviour
 
                 /*speed -= acceleratePerSec * Time.deltaTime;*/
             }
-            Debug.Log($"Gasar såhär mycket: {throttleAmount}");
         }
         else
         {
             speed += acceleratePerSec * Time.deltaTime * throttleAmount;
-            Debug.Log($"Gasar såhär mycket: {throttleAmount}");
         }
 
         speed = Mathf.Clamp(speed, minSpeed, maxSpeed);
@@ -56,8 +51,6 @@ public class FollowPath : MonoBehaviour
 
     void Update()
     {
-        Debug.Log("Update realTime: " + Time.realtimeSinceStartup);
-
         throttleAmount = throttle.GetAxis(hand.inputSource);       
     }
 }
