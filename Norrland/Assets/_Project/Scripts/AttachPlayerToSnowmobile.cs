@@ -10,15 +10,19 @@ public class AttachPlayerToSnowmobile : MonoBehaviour
 
     void Start()
     {
+        /*EventManager.GetOnScooter += AttachPlayer;*/
         attachPointTrans = transform;
     }
 
+    /*if (true)
+	{
+        GetOnScooter?.Invoke();
+	}*/
     
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.O))
         {
-
             AttachPlayer();
             /*AttachPlayer();*/
             Debug.Log($"Player Attached");
