@@ -1,3 +1,4 @@
+using System.Collections;
 using _Project.Scripts.EnumFlags;
 using UnityEngine;
 using Valve.VR;
@@ -12,9 +13,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private SteamVR_Action_Vector2 turnInput;
 
     [Header("Controllers")]
-    [SerializeField] private SteamVR_LaserPointer[] laserPointers;
-    [SerializeField] private GameObject[] icePickObjects;
     [SerializeField] private Hand[] hands;
+    [SerializeField] private SteamVR_LaserPointer[] laserPointers;
+    [SerializeField] private IcePick[] icePicks;
 
     [Header("Active Controllers")]
     [SerializeField] private ControllerType controllerType;
@@ -50,28 +51,48 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
-        Init();
+        StartCoroutine(InitRoutine());
     }
 
-    private void Init()
+    private IEnumerator InitRoutine()
+    {
+        while (true)
+        {
+            int handsReady = 0;
+            
+            foreach (Hand hand in hands)
+            {
+                if (!hand.isPoseValid)
+                    break;
+                
+                handsReady++;
+            }
+
+            if (handsReady == hands.Length)
+            {
+                InitControllers();
+                break;
+            }
+            
+            yield return null;
+        }
+    }
+
+    private void InitControllers()
     {
         SetLaserPointers(controllerType.HasFlag(ControllerType.LaserPointers));
         SetTeleporting(controllerType.HasFlag(ControllerType.Teleporting));
         SetMotionMovement(controllerType.HasFlag(ControllerType.MotionMovement));
         SetClimbing(controllerType.HasFlag(ControllerType.Climbing));
     }
-
+    
     private void Update()
     {
         UpdateMotionRotation();
-        for (int i = 0; i < hands.Length; i++)
-        {
-            // hands[i].AttachObject(icePickObjects[i], GrabTypes.Pinch, Hand.AttachmentFlags.DetachOthers);
-            // hands[i].skeleton.BlendToPoser(icePickObjects[i].GetComponent<SteamVR_Skeleton_Poser>());
-            Debug.Log($"attached? {hands[i].ObjectIsAttached(icePickObjects[i])}");
-            // Debug.Log($"name: {hands[i].currentAttachedObject.name}");
-            Debug.Log($"skeleton: {hands[i].skeleton}");
-        }
+
+#if UNITY_EDITOR
+        ReadDebugInput();
+#endif
     }
 
     private void FixedUpdate()
@@ -124,7 +145,8 @@ public class PlayerController : MonoBehaviour
     {
         foreach (SteamVR_LaserPointer pointer in laserPointers)
         {
-            pointer.enabled = active;
+            pointer.active = active;
+            pointer.pointer.SetActive(active);
         }
 
         controllerType = controllerType.SetFlag(ControllerType.LaserPointers, active);
@@ -153,16 +175,12 @@ public class PlayerController : MonoBehaviour
     
     private void SetClimbing(bool active)
     {
-        for (int i = 0; i < hands.Length; i++)
+        foreach (IcePick icePick in icePicks)
         {
-            icePickObjects[i].SetActive(active);
-
             if (active)
-            {
-                hands[i].AttachObject(icePickObjects[i], GrabTypes.Scripted);
-                // hands[i].skeleton.BlendToPoser(icePickObjects[i].GetComponent<SteamVR_Skeleton_Poser>());
-                Debug.Log($"attached? {hands[i].ObjectIsAttached(icePickObjects[i])} - name: {hands[i].currentAttachedObject.name}");
-            }
+                icePick.Attach();
+            else
+                icePick.Detach();
         }
 
         controllerType = controllerType.SetFlag(ControllerType.Climbing, active);
@@ -171,5 +189,25 @@ public class PlayerController : MonoBehaviour
     public void EnableClimbing() => SetClimbing(true);
     public void DisableClimbing() => SetClimbing(false);
     
+    #endregion
+
+    #region Debug
+    
+#if UNITY_EDITOR
+    
+    private void ReadDebugInput()
+    {
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            SetClimbing(true);
+        }
+        else if (Input.GetKeyDown(KeyCode.D))
+        {
+            SetClimbing(false);
+        }
+    }
+    
+#endif
+
     #endregion
 }
