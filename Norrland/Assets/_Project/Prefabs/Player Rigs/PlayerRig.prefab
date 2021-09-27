@@ -1420,6 +1420,8 @@ MonoBehaviour:
     actionPath: /actions/platformer/in/Turn
     needsReinit: 0
   laserPointers: []
+  icePickObjects: []
+  hands: []
   controllerType: 0
   moveSpeed: 2
   turnSpeed: 90
