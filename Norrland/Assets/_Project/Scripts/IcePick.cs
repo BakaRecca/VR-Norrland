@@ -1,4 +1,6 @@
+using System;
 using UnityEngine;
+using Valve.VR;
 using Valve.VR.InteractionSystem;
 
 public class IcePick : MonoBehaviour
@@ -8,10 +10,17 @@ public class IcePick : MonoBehaviour
     [SerializeField] private Transform attachmentOffset;
     [EnumFlags, SerializeField] private Hand.AttachmentFlags attachmentFlags;
 
+    private SteamVR_Behaviour_Pose _handPose;
+
     private void Reset()
     {
         attachmentFlags = Hand.AttachmentFlags.SnapOnAttach | Hand.AttachmentFlags.DetachFromOtherHand | 
                           Hand.AttachmentFlags.DetachOthers | Hand.AttachmentFlags.TurnOnKinematic;
+    }
+
+    private void Awake()
+    {
+        _handPose = _hand.GetComponent<SteamVR_Behaviour_Pose>();
     }
 
     public void Attach()
@@ -24,6 +33,27 @@ public class IcePick : MonoBehaviour
     {
         _hand.DetachObject(gameObject);
         gameObject.SetActive(false);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (!other.CompareTag("Climbable"))
+            return;
+
+        if (!other.TryGetComponent(out Climbable climbable))
+            return;
+        
+        // Debug.Log($"IcePick Enter: {other.name}");
+        ClimberSteam.Instance.SetHand(_handPose, climbable.Direction);
+    }
+    
+    private void OnTriggerExit(Collider other)
+    {
+        if (!other.CompareTag("Climbable"))
+            return;
+        
+        // Debug.Log($"IcePick Exit: {other.name}");
+        ClimberSteam.Instance.RemoveHand(_handPose);
     }
 
     // protected override void OnAttachedToHand(Hand hand)

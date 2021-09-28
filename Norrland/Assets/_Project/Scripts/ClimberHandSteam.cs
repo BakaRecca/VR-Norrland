@@ -59,7 +59,7 @@ public class ClimberHandSteam : MonoBehaviour
         if (log)
             Debug.Log($"{_hand.inputSource} Trigger Down");
         
-        ClimberSteam.Instance.SetHand(_hand);
+        // ClimberSteam.Instance.SetHand(_hand);
     }
     
     private void Release()

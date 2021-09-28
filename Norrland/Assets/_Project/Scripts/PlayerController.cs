@@ -184,6 +184,8 @@ public class PlayerController : MonoBehaviour
                 icePick.Detach();
         }
 
+        _characterController.enabled = active;
+
         controllerType = controllerType.SetFlag(ControllerType.Climbing, active);
     }
 
