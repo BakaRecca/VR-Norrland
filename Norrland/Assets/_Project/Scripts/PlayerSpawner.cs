@@ -1,14 +1,25 @@
 using UnityEngine;
+using UnityEngine.Events;
 using Valve.VR.InteractionSystem;
 
 public class PlayerSpawner : MonoBehaviour
 {
     [SerializeField] private GameObject debugPlayerObject;
-        
-    private GameObject playerObject;
+    [SerializeField] private SceneType sceneType;
+
+    [Header("DEBUG")]
+    [SerializeField] private bool log;
+
+    public UnityEvent onPlayerSpawned;
+
+    private Transform _transform;
+    private GameObject _playerObject;
+    private PlayerController _playerController;
 
     private void Awake()
     {
+        _transform = transform;
+        
         FindAndSpawnPlayer();
     }
 
@@ -24,7 +35,7 @@ public class PlayerSpawner : MonoBehaviour
                 return;
             }
             
-            playerObject = debugPlayerObject;
+            _playerObject = debugPlayerObject;
         }
         else if (debugPlayerObject != null && playerObjects.Length > 1)
         {
@@ -33,21 +44,72 @@ public class PlayerSpawner : MonoBehaviour
                 if (player.gameObject == debugPlayerObject)
                     continue;
 
-                playerObject = player.gameObject;
+                _playerObject = player.gameObject;
             }
         }
         else if (playerObjects.Length > 0)
-            playerObject = playerObjects[0].gameObject;
+            _playerObject = playerObjects[0].gameObject;
         else
-            playerObject = debugPlayerObject;
+            _playerObject = debugPlayerObject;
         
-        playerObject.SetActive(true);
+        _playerObject.SetActive(true);
 
-        if (debugPlayerObject != null && debugPlayerObject != playerObject)
+        if (debugPlayerObject != null && debugPlayerObject != _playerObject)
             Destroy(debugPlayerObject);
 
-        playerObject.transform.position = transform.position;
+        _playerObject.transform.position = _transform.position;
+        _playerObject.transform.rotation = _transform.rotation;
+
+        _playerController = _playerObject.GetComponent<PlayerController>();
+
+        InitScene();
         
-        Debug.Log($"Player Has Spawned!");
+        onPlayerSpawned.Invoke();
+
+        if (log)
+            Debug.Log($"Player Has Spawned!");
+    }
+
+    private void InitScene()
+    {
+        switch (sceneType)
+        {
+            case SceneType.Menu:
+                InitMenu();
+                break;
+            case SceneType.Cabin:
+                InitCabin();
+                break;
+            case SceneType.Lake:
+                InitLake();
+                break;
+        }
+    }
+    
+    private void InitMenu()
+    {
+        _playerController.DisableTeleporting();
+        _playerController.DisableMotionMovement();
+        _playerController.DisableClimbing();
+        
+        _playerController.EnableLaserPointers();
+    }
+
+    private void InitCabin()
+    {
+        _playerController.DisableLaserPointers();
+        _playerController.DisableMotionMovement();
+        _playerController.DisableClimbing();
+        
+        _playerController.EnableTeleporting();
+    }
+    
+    private void InitLake()
+    {
+        _playerController.DisableLaserPointers();
+        _playerController.DisableMotionMovement();
+        _playerController.DisableClimbing();
+        
+        _playerController.EnableTeleporting();
     }
 }

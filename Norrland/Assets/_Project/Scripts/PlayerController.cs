@@ -8,6 +8,8 @@ using Valve.VR.InteractionSystem;
 [RequireComponent(typeof(CharacterController))]
 public class PlayerController : MonoBehaviour
 {
+    public static PlayerController Instance;
+    
     [Header("Input / Actions")]
     [SerializeField] private SteamVR_Action_Vector2 moveInput;
     [SerializeField] private SteamVR_Action_Vector2 turnInput;
@@ -25,6 +27,11 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float turnSpeed;
     [SerializeField, Range(0.01f, 0.9f)] private float deadZone;
     [SerializeField] private bool constantTurnSpeed;
+    
+    [Header("DEBUG")]
+    [SerializeField] private bool log;
+
+    public SteamVR_LaserPointer[] LaserPointers => laserPointers;
 
     private Transform _transform;
     private Transform _head;
@@ -39,7 +46,18 @@ public class PlayerController : MonoBehaviour
 
     private void Awake()
     {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else if (Instance != null)
+        {
+            Destroy(gameObject);
+        }
+
         GetAllComponents();
+        
+        // DontDestroyOnLoad(gameObject);
     }
 
     private void GetAllComponents()
@@ -67,6 +85,9 @@ public class PlayerController : MonoBehaviour
                 
                 handsReady++;
             }
+            
+            if (log)
+                Debug.Log($"Waiting for controllers");
 
             if (handsReady == hands.Length)
             {
@@ -76,6 +97,9 @@ public class PlayerController : MonoBehaviour
             
             yield return null;
         }
+        
+        if (log)
+            Debug.Log($"Controllers Ready!");
     }
 
     private void InitControllers()
@@ -84,6 +108,11 @@ public class PlayerController : MonoBehaviour
         SetTeleporting(controllerType.HasFlag(ControllerType.Teleporting));
         SetMotionMovement(controllerType.HasFlag(ControllerType.MotionMovement));
         SetClimbing(controllerType.HasFlag(ControllerType.Climbing));
+    }
+
+    public void ReCheckControllers()
+    {
+        StartCoroutine(InitRoutine());
     }
     
     private void Update()
@@ -146,7 +175,8 @@ public class PlayerController : MonoBehaviour
         foreach (SteamVR_LaserPointer pointer in laserPointers)
         {
             pointer.active = active;
-            pointer.pointer.SetActive(active);
+            if (pointer.pointer != null)
+                pointer.pointer.SetActive(active);
         }
 
         controllerType = controllerType.SetFlag(ControllerType.LaserPointers, active);
@@ -157,7 +187,9 @@ public class PlayerController : MonoBehaviour
 
     private void SetTeleporting(bool active)
     {
-        Teleport.instance.enabled = active;
+        if (Teleport.instance != null)
+            Teleport.instance.enabled = active;
+        
         controllerType = controllerType.SetFlag(ControllerType.Teleporting, active);
     }
 
@@ -166,7 +198,7 @@ public class PlayerController : MonoBehaviour
     
     private void SetMotionMovement(bool active)
     {
-        _characterController.enabled = active;
+        // _characterController.enabled = active;
         
         controllerType = controllerType.SetFlag(ControllerType.MotionMovement, active);
     }
@@ -184,7 +216,7 @@ public class PlayerController : MonoBehaviour
                 icePick.Detach();
         }
 
-        _characterController.enabled = active;
+        // _characterController.enabled = active;
 
         controllerType = controllerType.SetFlag(ControllerType.Climbing, active);
     }

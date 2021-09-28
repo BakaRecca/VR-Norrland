@@ -3,15 +3,23 @@ using Valve.VR.Extras;
 
 public class SceneHandler : MonoBehaviour
 {
-    [SerializeField] private SteamVR_LaserPointer[] laserPointers;
     [SerializeField] string sceneName;
     
     [Header("DEBUG")]
     [SerializeField] private bool log;
+    
+    private SteamVR_LaserPointer[] _laserPointers;
 
-    private void OnEnable()
+    public void SetupPointers()
     {
-        foreach (SteamVR_LaserPointer pointer in laserPointers)
+        _laserPointers = PlayerController.Instance.LaserPointers;
+        
+        EnablePointers();
+    }
+
+    private void EnablePointers()
+    {
+        foreach (SteamVR_LaserPointer pointer in _laserPointers)
         {
             pointer.PointerIn += PointerInside;
             pointer.PointerOut += PointerOutside;
@@ -21,7 +29,7 @@ public class SceneHandler : MonoBehaviour
 
     private void OnDisable()
     {
-        foreach (SteamVR_LaserPointer pointer in laserPointers)
+        foreach (SteamVR_LaserPointer pointer in _laserPointers)
         {
             pointer.PointerIn -= PointerInside;
             pointer.PointerOut -= PointerOutside;

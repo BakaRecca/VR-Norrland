@@ -40,6 +40,11 @@ public class LoadLevel : MonoBehaviour
         StartCoroutine(FadeIn());
     }
 
+    private void Update()
+    {
+        ReadDebugInput();
+    }
+
     public void StartLoadingScene(string sceneName)
     {
         levelName = sceneName; 
@@ -107,4 +112,23 @@ public class LoadLevel : MonoBehaviour
 
         StartCoroutine(FadeIn());
     }
+
+    #region DEBUG
+
+    private void ReadDebugInput()
+    {
+        if (Input.GetKey(KeyCode.S))
+        {
+            if (Input.GetKeyDown(KeyCode.Alpha1))
+                StartLoadingScene("Menu");
+            else if (Input.GetKeyDown(KeyCode.Alpha2))
+                StartLoadingScene("CabinScene");
+            else if (Input.GetKeyDown(KeyCode.Alpha3))
+                StartLoadingScene("Lake");
+            else if (Input.GetKeyDown(KeyCode.R))
+                StartLoadingScene(SceneManager.GetActiveScene().name);
+        }
+    }
+
+    #endregion
 }

@@ -36,6 +36,5 @@ public class Door : MonoBehaviour
         {
             OpenDoor();
         }
-        Debug.Log("FårVihanden?");
     }
 }

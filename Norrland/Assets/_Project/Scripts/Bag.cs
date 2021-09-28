@@ -42,10 +42,7 @@ public class Bag : MonoBehaviour
             Debug.Log($"Bag is full! {_items.Count}/{requiredItemsCount}");
 
         if (IsFull)
-        {
             bagIsFull.Invoke();
-            GetComponent<RogerAudio>().RogerPacked(); // Chris ändrat för att kalla på ljudet
-        }
     }
 
     private bool CanAddItem(Item item)

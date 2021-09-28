@@ -1400,6 +1400,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9788c0d03d447a7b34bc3300aae190c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  freeMovement: 0
   log: 0
 --- !u!114 &2048348336
 MonoBehaviour:
@@ -1427,6 +1428,7 @@ MonoBehaviour:
   turnSpeed: 90
   deadZone: 0.25
   constantTurnSpeed: 0
+  log: 0
 --- !u!114 &2048348338
 MonoBehaviour:
   m_ObjectHideFlags: 0
