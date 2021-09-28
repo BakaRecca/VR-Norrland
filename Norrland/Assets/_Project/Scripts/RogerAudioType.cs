@@ -1,6 +1,7 @@
 public enum RogerAudioType
 {
     WakingUpInCabin,
+    BedSqueking,
     BeforeHeadingOut,
     BackpackPacked,
     MaybeTakeScooter,
