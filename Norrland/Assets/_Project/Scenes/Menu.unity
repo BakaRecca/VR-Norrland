@@ -724,16 +724,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3517369530615217469, guid: 473cc65f28a5ecf4bb79e615acb3db79,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3962656749364916022, guid: 473cc65f28a5ecf4bb79e615acb3db79,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6135166432685169997, guid: 473cc65f28a5ecf4bb79e615acb3db79,
         type: 3}
       propertyPath: m_RootOrder
@@ -1525,9 +1515,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4b68ae4a49b70d4196f86365ee75e66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  laserPointers:
-  - {fileID: 0}
-  - {fileID: 0}
   sceneName: CabinScene
   log: 1
 --- !u!4 &2133609654

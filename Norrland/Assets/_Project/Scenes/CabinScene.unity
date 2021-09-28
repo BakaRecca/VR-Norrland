@@ -1074,6 +1074,9 @@ MonoBehaviour:
   debugPlayerObject: {fileID: 1479312165}
   sceneType: 1
   log: 1
+  onPlayerSpawned:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!4 &1742279798
 Transform:
   m_ObjectHideFlags: 0
@@ -1514,6 +1517,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Roger
+      objectReference: {fileID: 0}
+    - target: {fileID: 411406112135479228, guid: f05cc2b1a4b6c314da09595330c25042,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f05cc2b1a4b6c314da09595330c25042, type: 3}

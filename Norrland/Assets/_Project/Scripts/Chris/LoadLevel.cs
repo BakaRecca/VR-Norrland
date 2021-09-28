@@ -93,6 +93,9 @@ public class LoadLevel : MonoBehaviour
 
         yield return new WaitForSeconds(transitionDelayTime);
 
+        if (PlayerController.Instance != null)
+            PlayerController.Instance.transform.parent = null;
+
         var oldScene = SceneManager.GetActiveScene();
 
         var progress = SceneManager.LoadSceneAsync(levelName, LoadSceneMode.Additive); // Starting the process to load

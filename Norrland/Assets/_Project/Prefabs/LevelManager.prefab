@@ -93,7 +93,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &7755220441608865910
 RectTransform:
   m_ObjectHideFlags: 0
@@ -219,6 +219,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b303487d23b9c340979ec81746d57de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelName: 
-  transitionDelayTime: 1
   blankImage: {fileID: 4270883954188428138}
+  transitionDelayTime: 1

@@ -31,6 +31,7 @@ public class PlayerController : MonoBehaviour
     [Header("DEBUG")]
     [SerializeField] private bool log;
 
+    public Hand[] Hands => hands;
     public SteamVR_LaserPointer[] LaserPointers => laserPointers;
 
     private Transform _transform;
