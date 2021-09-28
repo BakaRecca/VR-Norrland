@@ -157,6 +157,7 @@ public class PlayerController : MonoBehaviour
 
     private void SetTeleporting(bool active)
     {
+        Teleport.instance.enabled = active;
         controllerType = controllerType.SetFlag(ControllerType.Teleporting, active);
     }
 
@@ -183,6 +184,8 @@ public class PlayerController : MonoBehaviour
                 icePick.Detach();
         }
 
+        _characterController.enabled = active;
+
         controllerType = controllerType.SetFlag(ControllerType.Climbing, active);
     }
 
@@ -197,13 +200,21 @@ public class PlayerController : MonoBehaviour
     
     private void ReadDebugInput()
     {
-        if (Input.GetKeyDown(KeyCode.A))
+        if (Input.GetKeyDown(KeyCode.L))
         {
-            SetClimbing(true);
+            SetLaserPointers(!controllerType.HasFlag(ControllerType.LaserPointers));
         }
-        else if (Input.GetKeyDown(KeyCode.D))
+        if (Input.GetKeyDown(KeyCode.T))
         {
-            SetClimbing(false);
+            SetTeleporting(!controllerType.HasFlag(ControllerType.Teleporting));
+        }
+        if (Input.GetKeyDown(KeyCode.M))
+        {
+            SetMotionMovement(!controllerType.HasFlag(ControllerType.MotionMovement));
+        }
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            SetClimbing(!controllerType.HasFlag(ControllerType.Climbing));
         }
     }
     

@@ -4,6 +4,8 @@ using Valve.VR;
 public class ClimberSteam : MonoBehaviour
 {
     public static ClimberSteam Instance;
+
+    [SerializeField] private bool freeMovement;
     
     [Header("DEBUG")]
     [SerializeField] private bool log;
@@ -13,7 +15,14 @@ public class ClimberSteam : MonoBehaviour
     private PlayerController _playerController;
 
     private SteamVR_Behaviour_Pose _climbingHand;
-    
+
+    private Vector3 _climbDirection;
+
+    private void Reset()
+    {
+        freeMovement = true;
+    }
+
     private void Awake()
     {
         if (Instance == null)
@@ -37,16 +46,28 @@ public class ClimberSteam : MonoBehaviour
     private void Climb()
     {
         Vector3 handVelocity = _climbingHand.GetVelocity();
-        Vector3 climbVelocity = new Vector3(-handVelocity.x, -handVelocity.y, -handVelocity.z);
-        _characterController.Move(_transform.localRotation * climbVelocity * Time.deltaTime);
+        handVelocity.y = 0f;
+        
+        if (freeMovement)
+        {
+            Vector3 climbVelocity = new Vector3(-handVelocity.x, 0, -handVelocity.z);
+            _characterController.Move(_transform.localRotation * climbVelocity * Time.deltaTime);
+        }
+        else
+        {
+            Vector3 climbVelocity = new Vector3(-handVelocity.x * _climbDirection.x, 0, -handVelocity.z * _climbDirection.z);
+            _characterController.Move(climbVelocity * Time.deltaTime);
+        }
     }
 
-    public void SetHand(SteamVR_Behaviour_Pose hand)
+    public void SetHand(SteamVR_Behaviour_Pose hand, Vector3 direction)
     {
         if (log)
             Debug.Log($"SET NEW Hand: {hand.inputSource} - old: {(_climbingHand != null ? _climbingHand.inputSource : (SteamVR_Input_Sources?)null)}");
         
         _climbingHand = hand;
+
+        _climbDirection = direction;
 
         UpdatePlayerController();
     }
