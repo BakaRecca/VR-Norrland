@@ -30,6 +30,7 @@ public class RogerAudio : MonoBehaviour
     {
         if (rogerWakesUp)
         {
+            Play(RogerAudioType.BedSqueking);
             Invoke(nameof(WakeUpRoger), 3f);
         }
 
@@ -45,6 +46,11 @@ public class RogerAudio : MonoBehaviour
     private void WakeUpRoger()
     {
         Play(RogerAudioType.WakingUpInCabin);
+    }
+
+    private void BedDoesSound()
+    {
+        Play(RogerAudioType.BedSqueking);
     }
 
     public void RogerHouseTrigger()
