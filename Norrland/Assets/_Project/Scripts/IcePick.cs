@@ -25,6 +25,8 @@ public class IcePick : MonoBehaviour
         _hand.DetachObject(gameObject);
         gameObject.SetActive(false);
     }
+    
+    // DELETE THIS COMMENT
 
     // protected override void OnAttachedToHand(Hand hand)
     // {
