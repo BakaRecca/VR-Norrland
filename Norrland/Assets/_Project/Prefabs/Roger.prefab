@@ -45,14 +45,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioClips:
-  - {fileID: 8300000, guid: 02b825e55ba9961469b47831e9d947f0, type: 3}
-  - {fileID: 8300000, guid: 91a543b0924804447886058bd4c88f29, type: 3}
-  - {fileID: 8300000, guid: 8abd496f8f1973440b6a905976cf464c, type: 3}
-  - {fileID: 8300000, guid: 64b6bbd70bb84624fb994b9f8d9c253e, type: 3}
-  - {fileID: 8300000, guid: 26733db79b724d34b83277808eaebd89, type: 3}
-  - {fileID: 8300000, guid: 06ac5b75b06b45f458adc6548c8b4f9b, type: 3}
-  - {fileID: 8300000, guid: 0f7f61d0b386325439859a38490953ac, type: 3}
-  rogerWakesUp: 1
+  - {fileID: 8300000, guid: 84420e99c5356e94c93b4bb800e67d3b, type: 3}
+  - {fileID: 8300000, guid: 738f8ba8ab41f6f4b91ae5c0f3264889, type: 3}
+  - {fileID: 8300000, guid: 71efb94d22f9c804cbd2b7bdfd7a8d6b, type: 3}
+  - {fileID: 8300000, guid: 372e09a29dcebe74289ce37c459ed808, type: 3}
+  - {fileID: 8300000, guid: 6fafdd41eec53364cb91a0d8efbc8e9f, type: 3}
+  - {fileID: 8300000, guid: df24a13392136f848ae6aa077679ad0a, type: 3}
+  - {fileID: 8300000, guid: 2add3c7a8e87a5b4a817832ba1e15155, type: 3}
+  - {fileID: 8300000, guid: 6992d814be93cb347b5ed6bc2561d326, type: 3}
+  rogerWakesUp: 0
 --- !u!82 &411406112135479229
 AudioSource:
   m_ObjectHideFlags: 0
