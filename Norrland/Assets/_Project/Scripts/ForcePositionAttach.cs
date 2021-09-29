@@ -46,7 +46,7 @@ public class ForcePositionAttach : MonoBehaviour
 
     private void HandAttachedUpdate(Hand hand)
     {
-        Debug.Log($"Hand position: {hand.transform.position}. Handle position: {trans.position}");
+        /*Debug.Log($"Hand position: {hand.transform.position}. Handle position: {trans.position}");*/
 
         hand.transform.position = trans.position;
 
