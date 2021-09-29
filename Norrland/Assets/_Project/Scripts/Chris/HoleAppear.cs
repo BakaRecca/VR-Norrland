@@ -6,8 +6,11 @@ public class HoleAppear : MonoBehaviour
 {
     [SerializeField] private Mesh solid;
     [SerializeField] private Mesh hole;
+    [SerializeField] private Mesh broken;
 
     [SerializeField] private AudioClip audioClip;
+    [SerializeField] private AudioClip iceBreaksClip;
+
     [SerializeField, Range(0f, 1f)] private float volume = 1f;
 
     public UnityEvent onHoleIsDrilled;
@@ -21,21 +24,21 @@ public class HoleAppear : MonoBehaviour
     {
         _meshfilter = GetComponentInChildren<MeshFilter>();
         _particleSystem = GetComponentInChildren<ParticleSystem>();
-        
+
         _meshfilter.mesh = solid;
         _particleSystem.Stop();
     }
 
     private void Start()
     {
-        
+
     }
-    
+
     private void OnTriggerEnter(Collider other)
     {
         if (!other.CompareTag("IceDrill"))
             return;
-        
+
         if (_isDrilling)
             return;
 
@@ -43,7 +46,7 @@ public class HoleAppear : MonoBehaviour
 
         _isDrilling = true;
     }
-    
+
     private IEnumerator DrillTheHole()
     {
         Debug.Log("Start drilling");
@@ -54,14 +57,28 @@ public class HoleAppear : MonoBehaviour
 
         _meshfilter.mesh = hole;
         _particleSystem.Stop();
-        
+
         onHoleIsDrilled.Invoke();
 
         Debug.Log("DrillingDne");
+
+        yield return new WaitForSeconds(2f);
+
+        _meshfilter.mesh = broken;
+        PlayIceBreakAudio();
+
+
     }
-    
+
+
     private void PlayAudio()
     {
         AudioSource.PlayClipAtPoint(audioClip, transform.position, volume);
     }
+
+    private void PlayIceBreakAudio()
+    {
+        AudioSource.PlayClipAtPoint(iceBreaksClip, transform.position, volume);
+    }
+
 }
