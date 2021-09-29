@@ -1425,44 +1425,9 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 411406112135479218, guid: f05cc2b1a4b6c314da09595330c25042,
         type: 3}
-      propertyPath: audioClips.Array.size
-      value: 8
+      propertyPath: rogerWakesUp
+      value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 411406112135479218, guid: f05cc2b1a4b6c314da09595330c25042,
-        type: 3}
-      propertyPath: audioClips.Array.data[1]
-      value: 
-      objectReference: {fileID: 8300000, guid: 738f8ba8ab41f6f4b91ae5c0f3264889, type: 3}
-    - target: {fileID: 411406112135479218, guid: f05cc2b1a4b6c314da09595330c25042,
-        type: 3}
-      propertyPath: audioClips.Array.data[2]
-      value: 
-      objectReference: {fileID: 8300000, guid: 91a543b0924804447886058bd4c88f29, type: 3}
-    - target: {fileID: 411406112135479218, guid: f05cc2b1a4b6c314da09595330c25042,
-        type: 3}
-      propertyPath: audioClips.Array.data[3]
-      value: 
-      objectReference: {fileID: 8300000, guid: 8abd496f8f1973440b6a905976cf464c, type: 3}
-    - target: {fileID: 411406112135479218, guid: f05cc2b1a4b6c314da09595330c25042,
-        type: 3}
-      propertyPath: audioClips.Array.data[4]
-      value: 
-      objectReference: {fileID: 8300000, guid: 64b6bbd70bb84624fb994b9f8d9c253e, type: 3}
-    - target: {fileID: 411406112135479218, guid: f05cc2b1a4b6c314da09595330c25042,
-        type: 3}
-      propertyPath: audioClips.Array.data[5]
-      value: 
-      objectReference: {fileID: 8300000, guid: 26733db79b724d34b83277808eaebd89, type: 3}
-    - target: {fileID: 411406112135479218, guid: f05cc2b1a4b6c314da09595330c25042,
-        type: 3}
-      propertyPath: audioClips.Array.data[6]
-      value: 
-      objectReference: {fileID: 8300000, guid: 06ac5b75b06b45f458adc6548c8b4f9b, type: 3}
-    - target: {fileID: 411406112135479218, guid: f05cc2b1a4b6c314da09595330c25042,
-        type: 3}
-      propertyPath: audioClips.Array.data[7]
-      value: 
-      objectReference: {fileID: 8300000, guid: 0f7f61d0b386325439859a38490953ac, type: 3}
     - target: {fileID: 411406112135479219, guid: f05cc2b1a4b6c314da09595330c25042,
         type: 3}
       propertyPath: m_RootOrder
@@ -1522,11 +1487,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Roger
-      objectReference: {fileID: 0}
-    - target: {fileID: 411406112135479228, guid: f05cc2b1a4b6c314da09595330c25042,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f05cc2b1a4b6c314da09595330c25042, type: 3}
