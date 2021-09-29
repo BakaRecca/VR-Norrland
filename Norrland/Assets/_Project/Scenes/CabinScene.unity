@@ -2220,7 +2220,7 @@ PrefabInstance:
     - target: {fileID: 7469159490321508523, guid: 450f0085c6fb2a548822e7a502198706,
         type: 3}
       propertyPath: poseNames.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7469159490321508523, guid: 450f0085c6fb2a548822e7a502198706,
         type: 3}
@@ -2245,7 +2245,7 @@ PrefabInstance:
     - target: {fileID: 7469159490321508523, guid: 450f0085c6fb2a548822e7a502198706,
         type: 3}
       propertyPath: skeletonAdditionalPoses.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7545324341653214571, guid: 450f0085c6fb2a548822e7a502198706,
         type: 3}
