@@ -1962,7 +1962,7 @@ PrefabInstance:
     - target: {fileID: 4405882270710428890, guid: 450f0085c6fb2a548822e7a502198706,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.0666
+      value: 2.066
       objectReference: {fileID: 0}
     - target: {fileID: 4405882270710428890, guid: 450f0085c6fb2a548822e7a502198706,
         type: 3}
@@ -2143,6 +2143,57 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7469159490321508523, guid: 450f0085c6fb2a548822e7a502198706,
+        type: 3}
+      propertyPath: showLeftPreview
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7469159490321508523, guid: 450f0085c6fb2a548822e7a502198706,
+        type: 3}
+      propertyPath: showRightPreview
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7469159490321508523, guid: 450f0085c6fb2a548822e7a502198706,
+        type: 3}
+      propertyPath: skeletonMainPose
+      value: 
+      objectReference: {fileID: 11400000, guid: 5ff7905ce0b37ea4fbf7079bb5ea004c,
+        type: 2}
+    - target: {fileID: 7469159490321508523, guid: 450f0085c6fb2a548822e7a502198706,
+        type: 3}
+      propertyPath: previewLeftInstance
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7469159490321508523, guid: 450f0085c6fb2a548822e7a502198706,
+        type: 3}
+      propertyPath: poseNames.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7469159490321508523, guid: 450f0085c6fb2a548822e7a502198706,
+        type: 3}
+      propertyPath: previewPoseSelection
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7469159490321508523, guid: 450f0085c6fb2a548822e7a502198706,
+        type: 3}
+      propertyPath: previewRightInstance
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7469159490321508523, guid: 450f0085c6fb2a548822e7a502198706,
+        type: 3}
+      propertyPath: poseNames.Array.data[0]
+      value: PrickekorvPose (MAIN)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7469159490321508523, guid: 450f0085c6fb2a548822e7a502198706,
+        type: 3}
+      propertyPath: poseNames.Array.data[1]
+      value: '[not set]'
+      objectReference: {fileID: 0}
+    - target: {fileID: 7469159490321508523, guid: 450f0085c6fb2a548822e7a502198706,
+        type: 3}
+      propertyPath: skeletonAdditionalPoses.Array.size
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7545324341653214571, guid: 450f0085c6fb2a548822e7a502198706,
         type: 3}
