@@ -7,13 +7,18 @@ using Valve.VR;
 public class Door : MonoBehaviour
 {
     [SerializeField] SteamVR_Action_Boolean action;
- 
 
+    private AudioSource audioSource;
     [SerializeField] string sceneToLoad;
 
     bool isOpen = false;
 
-     public void OpenDoor()
+    private void Awake()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
+
+    public void OpenDoor()
     {
         if (!isOpen)
         {
@@ -26,7 +31,8 @@ public class Door : MonoBehaviour
     public void UnlockDoor()
     {
         isOpen = true;
-        RogerAudio.Instance.Play(RogerAudioType.WakingUpInCabin);
+        audioSource.Play();
+        //RogerAudio.Instance.Play(RogerAudioType.WakingUpInCabin);
     }
 
     void HandHoverUpdate(Hand hand)

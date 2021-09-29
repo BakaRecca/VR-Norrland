@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class RogerAudio : MonoBehaviour
 {
-    public static RogerAudio Instance;
+    //public static RogerAudio Instance;
     
     [SerializeField] List<AudioClip> audioClips;
     [SerializeField] private bool rogerWakesUp;
@@ -12,18 +12,18 @@ public class RogerAudio : MonoBehaviour
     
     private void Awake()
     {
-        if (Instance == null)
+      /*  if (Instance == null)
         {
             Instance = this;    
         }
         else if (Instance != null)
         {
             Destroy(gameObject);
-        }
+        }*/
 
         source = GetComponent<AudioSource>();
         
-        DontDestroyOnLoad(gameObject);
+        //DontDestroyOnLoad(gameObject);
     }
 
     private void Start()
