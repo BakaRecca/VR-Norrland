@@ -18,6 +18,8 @@ public class GetOnSnowmobile : MonoBehaviour
 
     private void OnHandHoverBegin(Hand hand)
     {
+        if (_attached)
+            return;
         hand.ShowGrabHint();
     }
 
