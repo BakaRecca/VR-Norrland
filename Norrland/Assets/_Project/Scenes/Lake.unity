@@ -3169,6 +3169,18 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1752843007}
         m_TargetAssemblyTypeName: FollowPath, Assembly-CSharp
+        m_MethodName: SetShowHands
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1752843007}
+        m_TargetAssemblyTypeName: FollowPath, Assembly-CSharp
         m_MethodName: SetPlayerIsOn
         m_Mode: 6
         m_Arguments:
@@ -3183,6 +3195,30 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: AttachPlayerToSnowmobile, Assembly-CSharp
         m_MethodName: AttachPlayer
         m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1752843014}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1752843013}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -3390,6 +3426,18 @@ AudioSource:
 --- !u!4 &1752843012 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 417877748134015969, guid: 2fed1901be3be9a43b71705ad6a828c9,
+    type: 3}
+  m_PrefabInstance: {fileID: 1752843005}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1752843013 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1249018927893982916, guid: 2fed1901be3be9a43b71705ad6a828c9,
+    type: 3}
+  m_PrefabInstance: {fileID: 1752843005}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1752843014 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5399338882517589584, guid: 2fed1901be3be9a43b71705ad6a828c9,
     type: 3}
   m_PrefabInstance: {fileID: 1752843005}
   m_PrefabAsset: {fileID: 0}
@@ -4190,6 +4238,18 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1752843007}
+        m_TargetAssemblyTypeName: FollowPath, Assembly-CSharp
+        m_MethodName: SetShowHands
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
         m_CallState: 2
   destroyOnTrigger: 1
 --- !u!54 &1304043551768772499

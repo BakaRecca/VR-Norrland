@@ -1,6 +1,7 @@
 using UnityEngine;
 using PathCreation;
 using Valve.VR;
+using Valve.VR.InteractionSystem;
 
 public class FollowPath : MonoBehaviour
 {
@@ -21,6 +22,8 @@ public class FollowPath : MonoBehaviour
     private float timeZeroToMax = 4f;
     private float acceleratePerSec;
     private float distanceTravelled;
+
+    private GameObject[] handModels;
 
     private Transform _playerTransform;
 
@@ -95,5 +98,28 @@ public class FollowPath : MonoBehaviour
     public void PlayerGetOff()
     {
         playerIsOn = false;
+    }
+
+    public void SetShowHands(bool active)
+    {
+        if (handModels == null)
+        {
+            RenderModel[] renderModels = PlayerController.Instance.GetComponentsInChildren<RenderModel>();
+
+            /*Debug.Log(renderModels.Length);*/
+
+            handModels = new GameObject[renderModels.Length];
+
+            for (int i = 0; i < renderModels.Length; i++)
+            {
+                handModels[i] = renderModels[i].gameObject;
+            }
+        }
+        
+
+        foreach (var handModel in handModels)
+        {
+            handModel.SetActive(active);
+        }
     }
 }
