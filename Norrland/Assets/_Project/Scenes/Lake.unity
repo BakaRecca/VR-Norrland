@@ -361,7 +361,8 @@ PrefabInstance:
         type: 3}
       propertyPath: solid
       value: 
-      objectReference: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+      objectReference: {fileID: -3540636590379711355, guid: d393bede4760b5c4d935324075ace395,
+        type: 3}
     - target: {fileID: 3402704440023891852, guid: 4177f1835077e0845b3e0ce6c86376b8,
         type: 3}
       propertyPath: broken
@@ -451,7 +452,7 @@ PrefabInstance:
     - target: {fileID: 3402704440023891853, guid: 4177f1835077e0845b3e0ce6c86376b8,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 21.14
+      value: 20.8
       objectReference: {fileID: 0}
     - target: {fileID: 3402704440023891853, guid: 4177f1835077e0845b3e0ce6c86376b8,
         type: 3}
@@ -3463,7 +3464,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 0.373
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
