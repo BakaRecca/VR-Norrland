@@ -58,12 +58,12 @@ public class HoleAppear : MonoBehaviour
         _meshfilter.mesh = hole;
         _particleSystem.Stop();
 
-        onHoleIsDrilled.Invoke();
 
         Debug.Log("DrillingDne");
 
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(20f);
 
+        onHoleIsDrilled.Invoke();
         _meshfilter.mesh = broken;
         PlayIceBreakAudio();
 

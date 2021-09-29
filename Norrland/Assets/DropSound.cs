@@ -10,6 +10,7 @@ public class DropSound : MonoBehaviour
     {
         if (item.relativeVelocity.magnitude > 3)
         {
+            Debug.Log(name + "playsound");
             dropSound.Play();
         }
     }
