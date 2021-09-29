@@ -11,6 +11,7 @@ public class Bag : MonoBehaviour
 
     private Transform _transform;
     private List<Item> _items;
+    private AudioSource audioSource;
 
     [SerializeField] UnityEvent bagIsFull;
     
@@ -23,6 +24,7 @@ public class Bag : MonoBehaviour
 
     private void Awake()
     {
+        audioSource = GetComponent<AudioSource>();
         _transform = transform;
         _items = new List<Item>();
     }
@@ -34,6 +36,7 @@ public class Bag : MonoBehaviour
         
         _items.Add(item);
         Attach(item);
+        PlaySound();
         
         if (log)
             Debug.Log($"Item \"{item.name}\" added!");
@@ -93,5 +96,10 @@ public class Bag : MonoBehaviour
         
         if (other.TryGetComponent(out Item item))
             AddItem(item);
+    }
+
+    private void PlaySound()
+    {
+        audioSource.Play();
     }
 }
