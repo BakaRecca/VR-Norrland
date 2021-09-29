@@ -226,7 +226,7 @@ public class PlayerController : MonoBehaviour
         
         if (active)
         {
-            vrObjectsTransform.localPosition = new Vector3(0f, -1f, 0f);
+            vrObjectsTransform.localPosition = new Vector3(0f, -1.3f, 0f);
         }
         else
         {
