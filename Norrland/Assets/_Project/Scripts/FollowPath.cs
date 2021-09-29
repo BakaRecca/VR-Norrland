@@ -8,9 +8,14 @@ public class FollowPath : MonoBehaviour
     [SerializeField] private SteamVR_Behaviour_Pose hand;
     [SerializeField] private float throttleAmount;
     [SerializeField] private Transform seatTransform;
+    [SerializeField] private Transform getOffTransform;
+    [SerializeField] private Transform playerGetOffTransform;
     [SerializeField] private float speed = 0;
+    
     public bool playerIsOn;
 
+    private Transform _transform;
+    
     private float minSpeed = 0f;
     private float maxSpeed = 20f;
     private float timeZeroToMax = 4f;
@@ -23,6 +28,7 @@ public class FollowPath : MonoBehaviour
 
     private void Awake()
     {
+        _transform = transform;
         acceleratePerSec = maxSpeed / timeZeroToMax;
         speed = 0f;
     }
@@ -74,7 +80,20 @@ public class FollowPath : MonoBehaviour
     {
         if (active)
             _playerTransform = PlayerController.Instance.transform;
+        else
+        {
+            _transform.position = getOffTransform.position;
+            _transform.rotation = getOffTransform.rotation;
+
+            _playerTransform.position = playerGetOffTransform.position;
+            _playerTransform.rotation = playerGetOffTransform.rotation;
+        }
         
         playerIsOn = active;
+    }
+
+    public void PlayerGetOff()
+    {
+        playerIsOn = false;
     }
 }

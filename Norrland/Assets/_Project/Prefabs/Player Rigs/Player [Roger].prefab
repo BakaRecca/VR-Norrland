@@ -1189,13 +1189,14 @@ GameObject:
   - component: {fileID: 9029531885043486232}
   - component: {fileID: 9029531885043486235}
   - component: {fileID: 9029531885043486234}
+  - component: {fileID: 1649515857}
   m_Layer: 0
   m_Name: Player [Roger]
   m_TagString: Untagged
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &9029531885043486239
 Transform:
   m_ObjectHideFlags: 0
@@ -1309,12 +1310,13 @@ MonoBehaviour:
   icePicks:
   - {fileID: 6657267114360846936}
   - {fileID: 9029531884818541286}
-  controllerType: 1
+  controllerType: 2
   moveSpeed: 2
   turnSpeed: 90
   deadZone: 0.25
   constantTurnSpeed: 0
-  log: 0
+  vrObjectsTransform: {fileID: 9029531884893309118}
+  log: 1
 --- !u!114 &9029531885043486234
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1329,6 +1331,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   freeMovement: 1
   log: 0
+--- !u!114 &1649515857
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9029531885043486229}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27991c206a5e66147bb8ee3ef31c8bac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  actionSet:
+    actionSetPath: /actions/buggy
+  forSources: 0
+  disableAllOtherActionSets: 0
+  activateOnStart: 1
+  deactivateOnDestroy: 0
+  initialPriority: 0
 --- !u!1 &9029531885048026273
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class HoleAppear : MonoBehaviour
 {
@@ -9,27 +10,38 @@ public class HoleAppear : MonoBehaviour
     [SerializeField] private AudioClip audioClip;
     [SerializeField, Range(0f, 1f)] private float volume = 1f;
 
+    public UnityEvent onHoleIsDrilled;
+
     private MeshFilter _meshfilter;
     private ParticleSystem _particleSystem;
+
+    private bool _isDrilling;
 
     private void Awake()
     {
         _meshfilter = GetComponentInChildren<MeshFilter>();
         _particleSystem = GetComponentInChildren<ParticleSystem>();
+        
+        _meshfilter.mesh = solid;
+        _particleSystem.Stop();
     }
 
     private void Start()
     {
-        _meshfilter.mesh = solid;
-        _particleSystem.Stop();
+        
     }
     
-    private void OnTriggerStay(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
-        if (Input.GetKeyDown(KeyCode.K))
-        {
-            StartCoroutine(DrillTheHole());
-        }
+        if (!other.CompareTag("IceDrill"))
+            return;
+        
+        if (_isDrilling)
+            return;
+
+        StartCoroutine(DrillTheHole());
+
+        _isDrilling = true;
     }
     
     private IEnumerator DrillTheHole()
@@ -42,6 +54,8 @@ public class HoleAppear : MonoBehaviour
 
         _meshfilter.mesh = hole;
         _particleSystem.Stop();
+        
+        onHoleIsDrilled.Invoke();
 
         Debug.Log("DrillingDne");
     }

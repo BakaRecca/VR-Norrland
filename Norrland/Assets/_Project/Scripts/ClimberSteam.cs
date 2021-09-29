@@ -94,4 +94,12 @@ public class ClimberSteam : MonoBehaviour
     {
         _playerController.enabled = _climbingHand == null;
     }
+
+    public void SetController(bool active)
+    {
+        if (!active)
+            _climbingHand = null;
+
+        enabled = active;
+    }
 }

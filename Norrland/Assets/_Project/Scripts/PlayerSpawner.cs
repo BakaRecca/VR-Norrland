@@ -59,7 +59,7 @@ public class PlayerSpawner : MonoBehaviour
 
         _playerObject.transform.position = _transform.position;
         _playerObject.transform.rotation = _transform.rotation;
-
+        
         _playerController = _playerObject.GetComponent<PlayerController>();
 
         InitScene();

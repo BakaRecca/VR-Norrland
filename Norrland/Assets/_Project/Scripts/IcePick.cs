@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using Valve.VR;
 using Valve.VR.InteractionSystem;
@@ -9,6 +8,9 @@ public class IcePick : MonoBehaviour
     [SerializeField] private Hand _hand;
     [SerializeField] private Transform attachmentOffset;
     [EnumFlags, SerializeField] private Hand.AttachmentFlags attachmentFlags;
+    
+    [Header("DEBUG")]
+    [SerializeField] private bool log;
 
     private SteamVR_Behaviour_Pose _handPose;
 
@@ -39,11 +41,13 @@ public class IcePick : MonoBehaviour
     {
         if (!other.CompareTag("Climbable"))
             return;
+        
+        if (log)
+            Debug.Log($"IcePick Enter: {other.name}");
 
         if (!other.TryGetComponent(out Climbable climbable))
             return;
         
-        // Debug.Log($"IcePick Enter: {other.name}");
         ClimberSteam.Instance.SetHand(_handPose, climbable.Direction);
     }
     
@@ -55,24 +59,4 @@ public class IcePick : MonoBehaviour
         // Debug.Log($"IcePick Exit: {other.name}");
         ClimberSteam.Instance.RemoveHand(_handPose);
     }
-
-    // protected override void OnAttachedToHand(Hand hand)
-    // {
-    //     base.OnAttachedToHand(hand);
-    //     Debug.Log($"[ICE_ICE_ICE] - {nameof(OnAttachedToHand)} - {hand}");
-    // }
-
-    private void HandAttachedUpdate()
-    {
-        // if (Input.GetKeyDown(KeyCode.U))
-        // {
-        //     Debug.Log($"[ICE_ICE_ICE] - {nameof(HandAttachedUpdate)}");
-        // }
-    }
-
-    // protected override void OnDetachedFromHand(Hand hand)
-    // {
-    //     base.OnDetachedFromHand(hand);
-    //     Debug.Log($"[ICE_ICE_ICE] - {nameof(OnDetachedFromHand)} - {hand}");
-    // }
 }

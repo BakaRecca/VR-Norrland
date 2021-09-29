@@ -27,6 +27,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float turnSpeed;
     [SerializeField, Range(0.01f, 0.9f)] private float deadZone;
     [SerializeField] private bool constantTurnSpeed;
+
+    [SerializeField] private Transform vrObjectsTransform;
     
     [Header("DEBUG")]
     [SerializeField] private bool log;
@@ -37,6 +39,7 @@ public class PlayerController : MonoBehaviour
     private Transform _transform;
     private Transform _head;
     private CharacterController _characterController;
+    private ClimberSteam _climberController;
 
     private void Reset()
     {
@@ -66,6 +69,7 @@ public class PlayerController : MonoBehaviour
         _transform = transform;
         _head = Player.instance.hmdTransform;
         _characterController = GetComponent<CharacterController>();
+        _climberController = GetComponent<ClimberSteam>();
     }
 
     private void Start()
@@ -218,6 +222,16 @@ public class PlayerController : MonoBehaviour
         }
 
         // _characterController.enabled = active;
+        _climberController.SetController(active);
+        
+        if (active)
+        {
+            vrObjectsTransform.localPosition = new Vector3(0f, -1f, 0f);
+        }
+        else
+        {
+            vrObjectsTransform.localPosition = Vector3.zero;
+        }
 
         controllerType = controllerType.SetFlag(ControllerType.Climbing, active);
     }
@@ -254,4 +268,9 @@ public class PlayerController : MonoBehaviour
 #endif
 
     #endregion
+
+    public void Kill()
+    {
+        // _characterController.enabled = false;
+    }
 }
